@@ -393,6 +393,12 @@
 								<ul class="nav nav-collapse">
                                     <li>
 										<a href="forms/forms.html">
+											<span class="sub-item">Ano Lectivo</span>
+										</a>
+                                    </li>
+
+                                    <li>
+										<a href="forms/forms.html">
 											<span class="sub-item">Cursos</span>
 										</a>
                                     </li>
