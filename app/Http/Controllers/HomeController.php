@@ -11,7 +11,8 @@ class HomeController extends Controller
             'title'=>"Inscritor System",
             'menu'=>"Home",
             'submenu'=>null,
-            'type'=>"none",
+            'type'=>"home",
+            'config'=>null,
         ];
         return view('admin.home', $data);
     }
