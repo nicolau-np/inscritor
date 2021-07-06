@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{App()->getLocale()}}">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{$title}}</title>
@@ -270,11 +270,11 @@
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">My Profile</a>
-										<a class="dropdown-item" href="#">My Balance</a>
-										<a class="dropdown-item" href="#">Inbox</a>
+										<a class="dropdown-item" href="#">Meu Perfil</a>
+										<a class="dropdown-item" href="#">Meus Balanços</a>
+										<a class="dropdown-item" href="#">Entrada</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Account Setting</a>
+										<a class="dropdown-item" href="#">Configurações</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#">Logout</a>
 									</li>
@@ -309,17 +309,17 @@
 								<ul class="nav">
 									<li>
 										<a href="#profile">
-											<span class="link-collapse">My Profile</span>
+											<span class="link-collapse">Meu Perfil</span>
 										</a>
 									</li>
 									<li>
 										<a href="#edit">
-											<span class="link-collapse">Edit Profile</span>
+											<span class="link-collapse">Editar Perfil</span>
 										</a>
 									</li>
 									<li>
 										<a href="#settings">
-											<span class="link-collapse">Settings</span>
+											<span class="link-collapse">Configurações</span>
 										</a>
 									</li>
 								</ul>
@@ -947,24 +947,24 @@
 					<nav class="pull-left">
 						<ul class="nav">
 							<li class="nav-item">
-								<a class="nav-link" href="https://www.themekita.com">
-									ThemeKita
+								<a class="nav-link" href="https://www.inscritor.com">
+									Inscritor
 								</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">
-									Help
+									Ajuda
 								</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">
-									Licenses
+									Licença
 								</a>
 							</li>
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
-						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+						{{date('Y')}}, powered by <a href="https://www.npSoft.com">npSoft</a>
 					</div>
 				</div>
 			</footer>
