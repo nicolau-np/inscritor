@@ -445,11 +445,12 @@
 
 		<div class="main-panel">
 			<div class="content">
+                @if ($type=="home")
 				<div class="panel-header bg-primary-gradient">
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
+                            <h2 class="text-white pb-2 fw-bold">{{$menu}}</h2>
 								<h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
@@ -958,8 +959,36 @@
 							</div>
 						</div>
 					</div>
+                </div>
+                @else
+                <div class="page-inner">
+					<div class="page-header">
+                    <h4 class="page-title">{{$menu}}</h4>
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="#">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+                            <a href="#">{{$sumenu}}</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+						@yield('content')
+					</div>
 				</div>
-			</div>
+                @endif
+
+
+            </div>
 			<footer class="footer">
 				<div class="container-fluid">
 					<nav class="pull-left">
