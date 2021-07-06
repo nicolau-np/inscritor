@@ -376,7 +376,13 @@
                                     </li>
 								</ul>
 							</div>
-						</li>
+                        </li>
+                        <li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Extras</h4>
+                        </li>
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#forms">
 								<i class="fas fa-pen-square"></i>
