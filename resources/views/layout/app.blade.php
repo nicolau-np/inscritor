@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="{{asset('assets/admin/css/demo.css')}}">
 </head>
 <body>
+    @if($type!="login")
 	<div class="wrapper">
 		<div class="main-header">
 			<!-- Logo Header -->
@@ -521,7 +522,10 @@
 		<!-- Custom template | don't include it in your project! -->
 
 		<!-- End Custom template -->
-	</div>
+    </div>
+    @else
+    @yield('content')
+    @endif
 	<!--   Core JS Files   -->
 	<script src="{{asset('assets/admin/js/core/jquery.3.2.1.min.js')}}"></script>
 	<script src="{{asset('assets/admin/js/core/popper.min.js')}}"></script>

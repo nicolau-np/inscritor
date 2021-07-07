@@ -14,6 +14,6 @@ class LoginController extends Controller
             'type'=>"login",
             'config'=>null,
         ];
-        return view('user.login', $data);
+        return view('admin.user.login', $data);
     }
 }
