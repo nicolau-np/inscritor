@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 /*admin*/
 
 Route::get('/', "HomeController@index");
+Route::get('/login', "LoginController@login");
 
 /*admin*/
