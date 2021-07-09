@@ -14,7 +14,9 @@ class CreateNivelInstituicaosTable extends Migration
     public function up()
     {
         Schema::create('nivel_instituicaos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('nivel')->unique();
+            $table->string('estado');
             $table->timestamps();
         });
     }
