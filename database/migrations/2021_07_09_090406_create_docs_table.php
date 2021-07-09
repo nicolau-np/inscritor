@@ -14,8 +14,16 @@ class CreateDocsTable extends Migration
     public function up()
     {
         Schema::create('docs', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('id_tipo_doc')->unsigned()->index();
+            $table->bigInteger('id_estudante')->unsigned()->index();
+            $table->string('estado');
             $table->timestamps();
+        });
+
+        Schema::table('docs', function (Blueprint $table){
+            $table->foreign('id_tipo_doc')->references('id')->on('tipo_docs')->onUpdate('cascade');
+            $table->foreign('id_estudante')->references('id')->on('estudantes')->onUpdate('cascade');
         });
     }
 
