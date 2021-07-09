@@ -14,7 +14,9 @@ class CreateAnoLectivosTable extends Migration
     public function up()
     {
         Schema::create('ano_lectivos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('ano_lectivo');
+            $table->string('estado');
             $table->timestamps();
         });
     }
