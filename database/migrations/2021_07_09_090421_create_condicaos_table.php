@@ -14,7 +14,12 @@ class CreateCondicaosTable extends Migration
     public function up()
     {
         Schema::create('condicaos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('id_instituicao')->unsigned()->index();
+            $table->bigInteger('id_ano_lectivo')->unsigned()->index();
+            $table->bigInteger('ano_inicio');
+            $table->bigInteger('ano_fim');
+            $table->string('estado');
             $table->timestamps();
         });
     }
