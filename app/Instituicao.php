@@ -22,15 +22,15 @@ class Instituicao extends Model
         return $this->hasMany(Estudante::class, 'id_instituicao', 'id');
     }
 
-    public function condicao(){
-        return $this->hasMany(Condicao::class, 'id_instituicao', 'id');
-    }
-
     public function nivel_instituicao(){
         return $this->belongsTo(NivelInstituicao::class, 'id_nivel_instituicao', 'id');
     }
 
     public function tipo_instituicao(){
         return $this->belongsTo(TipoInstituicao::class, 'id_tipo_instituicao', 'id');
+    }
+
+    public function condicao(){
+        return $this->hasMany(Condicao::class, 'id_instituicao', 'id');
     }
 }

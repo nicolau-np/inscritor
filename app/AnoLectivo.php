@@ -16,4 +16,8 @@ class AnoLectivo extends Model
     public function estudante(){
         return $this->hasMany(Estudante::class, 'id_ano_lectivo', 'id');
     }
+
+    public function condicao(){
+        return $this->hasMany(Condicao::class, 'id_ano_lectivo', 'id');
+    }
 }
