@@ -14,7 +14,12 @@ class CreatePessoasTable extends Migration
     public function up()
     {
         Schema::create('pessoas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('bi')->unique()->nullable();
+            $table->bigInteger('telefone')->nullable();
+            $table->string('genero');
+            $table->date('data_nascimento');
             $table->timestamps();
         });
     }
