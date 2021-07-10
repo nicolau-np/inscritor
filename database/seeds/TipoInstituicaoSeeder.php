@@ -1,16 +1,23 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TipoInstituicaoSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    static $tipo_instituicaos = [
+        [
+            'tipo'=>"Puniv",
+            'estado'=>"on",
+        ],
+    ];
+
     public function run()
     {
-        //
+        foreach(Self::$tipo_instituicaos as $tipo_instituicao){
+            DB::table('tipo_instituicaos')->insert(
+                $tipo_instituicao
+            );
+        }
     }
 }
