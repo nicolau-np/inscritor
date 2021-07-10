@@ -13,6 +13,13 @@ class PessoaSeeder extends Seeder
             'genero' => "M",
             'data_nascimento' => "1996-08-29",
         ],
+        [
+            'nome' => "Arminda Dores",
+            'bi' => "003441180HA051",
+            'telefone' => 932590721,
+            'genero' => "F",
+            'data_nascimento' => "1998-12-12",
+        ],
     ];
 
     public function run()
