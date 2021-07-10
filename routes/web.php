@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::get('/', "HomeController@pagina_pricipal");
+Route::get('/login', "UserController@login");
+
+
 /*admin*/
 
-Route::get('/', "HomeController@index");
-Route::get('/login', "LoginController@login");
+/*Route::group(['prefix'=>"admin"], function(){
+    Route::resource('/estudantes', [LoginController::class]);
+});*/
 
 /*admin*/

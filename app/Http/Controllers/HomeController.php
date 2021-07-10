@@ -16,4 +16,15 @@ class HomeController extends Controller
         ];
         return view('admin.home', $data);
     }
+
+    public function pagina_pricipal(){
+        $data = [
+            'title'=>"Inscritor System",
+            'menu'=>"Principal",
+            'submenu'=>null,
+            'type'=>"principal",
+            'config'=>null,
+        ];
+        return view('home', $data);
+    }
 }
