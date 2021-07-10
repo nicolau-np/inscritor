@@ -7,8 +7,13 @@ class NivelInstituicaoSeeder extends Seeder
 {
     static $nivel_instituicaos = [
         [
-            'nivel'=>"Ensino Secundário do 2 º Cículo"
-        ]
+            'nivel'=>"master",
+            'estado'=>"on"
+        ],
+        [
+            'nivel'=>"Ensino Secundário do 2 º Cículo",
+            'estado' =>"on"
+        ],
     ];
 
     public function run()
@@ -17,6 +22,7 @@ class NivelInstituicaoSeeder extends Seeder
             DB::table('nivel_instituicaos')->insert(
                 $nivel_instituicao
             );
-        }
+
+       }
     }
 }

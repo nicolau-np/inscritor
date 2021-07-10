@@ -7,6 +7,10 @@ class TipoInstituicaoSeeder extends Seeder
 {
     static $tipo_instituicaos = [
         [
+            'tipo'=>"Master",
+            'estado'=>"on",
+        ],
+        [
             'tipo'=>"Puniv",
             'estado'=>"on",
         ],
