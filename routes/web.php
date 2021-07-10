@@ -21,8 +21,8 @@ Route::get('/login', "UserController@login");
 
 /*admin*/
 
-/*Route::group(['prefix'=>"admin"], function(){
-    Route::resource('/estudantes', [LoginController::class]);
-});*/
+Route::group(['prefix'=>"admin"], function(){
+    Route::resource('/estudantes', [UserController::class]);
+});
 
 /*admin*/
