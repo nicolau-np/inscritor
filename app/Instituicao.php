@@ -9,6 +9,8 @@ class Instituicao extends Model
     protected $table = "instituicaos";
 
     protected $fillable = [
+       'id_tipo_instituicao',
+        'id_nivel_instituicao',
         'nome',
         'bairro',
         'estado',
