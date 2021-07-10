@@ -1,24 +1,55 @@
 @extends('layout.app')
 @section('content')
+
+<style>
+    .container{
+        padding-top: 10%;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    @media(max-width:700px){
+        .container{
+        padding-top: 5%;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    }
+
+</style>
+
 <div class="container">
 
     <div class="form">
-        {{Form::open(['method'=>"post", 'url'=>""])}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    {{Form::email('email', null, ['placeholder'=>"Email", 'class'=>"form-controll"])}}
+        @if (session('error'))
+        <div class="alert bg-danger" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em> {{__(session('error'))}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+        @endif
 
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    {{Form::label('password')}}
-                    {{Form::password('password', null, ['placeholder'=>"Palavra-Passe", 'class'=>"form-controll"])}}
+        @if (session('success'))
+        <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+         @endif
 
-                </div>
-            </div>
+        {{Form::open(['method'=>"post", 'url'=>"/logar"])}}
+        <div class="form-group">
+            <input class="form-control" placeholder="{{__('E-mail')}}" name="email" type="email" autofocus="">
+            @if($errors->has('email'))
+            <span class="text-danger">{{$errors->first('email')}}</span>
+            @endif
         </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{__('Palavra-Passe')}}" name="password" type="password" value="">
+            @if($errors->has('password'))
+            <span class="text-danger">{{$errors->first('password')}}</span>
+            @endif
+        </div>
+        <div class="checkbox">
+            <label>
+                <input name="remember" type="checkbox" value="Remember Me">{{__('Lembrar Me')}}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            {{__('Entrar')}}
+        </button>
         {{Form::close()}}
     </div>
 </div>
