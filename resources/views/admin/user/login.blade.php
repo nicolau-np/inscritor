@@ -16,6 +16,10 @@
     }
     }
 
+.form{
+    padding: 4%;
+    border: 1px solid #f5f5f5;
+}
 </style>
 
 <div class="container">
@@ -42,6 +46,7 @@
             <span class="text-danger">{{$errors->first('password')}}</span>
             @endif
         </div>
+        &nbsp;
         <div class="checkbox">
             <label>
                 <input name="remember" type="checkbox" value="Remember Me">{{__('Lembrar Me')}}
