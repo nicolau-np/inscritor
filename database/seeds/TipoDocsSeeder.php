@@ -4,11 +4,22 @@ use Illuminate\Database\Seeder;
 
 class TipoDocsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
+    static $tipo_docs = [
+        [
+            'tipo'=>"Certificado",
+            'estado'=>"on",
+        ],
+        [
+            'tipo'=>"Declaração",
+            'estado'=>"on",
+        ],
+        [
+            'tipo'=>"Lista",
+            'estado'=>"on",
+        ]
+    ];
+
     public function run()
     {
         //
