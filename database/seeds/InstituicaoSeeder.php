@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class InstituicaoSeeder extends Seeder
 {
@@ -25,6 +26,10 @@ class InstituicaoSeeder extends Seeder
 
     public function run()
     {
-
+        foreach(Self::$instituicaos as $instituicao){
+            DB::table('instituicaos')->insert(
+                $instituicao
+            );
+        }
     }
 }

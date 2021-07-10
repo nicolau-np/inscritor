@@ -23,7 +23,7 @@ class UsuarioSeeder extends Seeder
                 array(
                     'id_pessoa' => 2,
                     'id_instituicao' => 2,
-                    'email' => "armindadoresd@gmail.com",
+                    'email' => "armindadores@gmail.com",
                     'palavra_passe' => Hash::make("babaca"),
                     'nivel_acesso' => "admin",
                     'estado' => "on",
