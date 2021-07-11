@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', "HomeController@pagina_pricipal");
 Route::get('/login', "UserController@login");
+Route::get('/logar', "UserController@logar");
 
 
 /*admin*/
@@ -24,7 +25,7 @@ Route::get('/login', "UserController@login");
 Route::group(['prefix'=>"admin"], function(){
 
     Route::resource('/estudante', "EstudanteController");
-    
+
 });
 
 /*admin*/
