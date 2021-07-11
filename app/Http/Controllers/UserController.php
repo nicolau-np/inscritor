@@ -23,18 +23,16 @@ class UserController extends Controller
         $request->validate(
             [
                 'email' => ['required', 'string', 'email', 'max:255'],
-                'palavra_passe' => ['required', 'string', 'min:6', 'max:255']
+                'password' => ['required', 'string', 'min:6', 'max:255']
             ]
         );
 
-        /*$credencials = $request->only('email', 'palavra_passe');
+        $credencials = $request->only('email', 'password');
         if (Auth::attempt($credencials)) {
             return redirect()->route('admin');
         } else {
             return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
-        }*/
-
-        dd($request);
+        }
     }
 
     public function logout(){
