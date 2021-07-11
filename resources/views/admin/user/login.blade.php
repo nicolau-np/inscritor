@@ -33,7 +33,8 @@
         <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
         @endif
 
-        {{Form::open(['method'=>"post", 'url'=>"/logar"])}}
+        {{Form::open(['method'=>"post", 'url'=>"/logar", 'name'=>"formLogin"])}}
+        @csrf
         <div class="form-group">
             <input class="form-control" placeholder="{{__('E-mail')}}" name="email" type="email" autofocus="">
             @if($errors->has('email'))
