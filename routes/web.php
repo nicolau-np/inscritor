@@ -15,15 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', "HomeController@pagina_pricipal");
-Route::get('/login', "UserController@login");
-Route::get('/logar', "UserController@logar");
+Route::get('/', "HomeController@pagina_pricipal")->name('home');
+Route::get('/login', "UserController@login")->name('login');
+Route::get('/logar', "UserController@logar")->name('logar');
 
 
 /*admin*/
 
 Route::group(['prefix'=>"admin"], function(){
-
+    Route::get('/', "HomeController@index")->name('admin');
+    
     Route::resource('/estudante', "EstudanteController");
 
 });
