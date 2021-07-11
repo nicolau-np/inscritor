@@ -27,12 +27,12 @@ class UserController extends Controller
             ]
         );
 
-        $credencials = $request->only('email', 'password');
+        /*$credencials = $request->only('email', 'password');
         if (Auth::attempt($credencials)) {
             return redirect()->route('admin');
         } else {
             return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
-        }
+        }*/
     }
 
     public function logout(){
