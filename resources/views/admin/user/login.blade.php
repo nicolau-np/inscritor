@@ -41,9 +41,9 @@
             @endif
         </div>
         <div class="form-group">
-            <input class="form-control" placeholder="{{__('Palavra-Passe')}}" name="password" type="password" value="">
-            @if($errors->has('password'))
-            <span class="text-danger">{{$errors->first('password')}}</span>
+            <input class="form-control" placeholder="{{__('Palavra-Passe')}}" name="palavra_passe" type="password" value="">
+            @if($errors->has('palavra_passe'))
+            <span class="text-danger">{{$errors->first('palavra_passe')}}</span>
             @endif
         </div>
         &nbsp;

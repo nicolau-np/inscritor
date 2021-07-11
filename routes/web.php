@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', "HomeController@pagina_pricipal")->name('home');
 Route::get('/login', "UserController@login")->name('login');
-Route::get('/logar', "UserController@logar")->name('logar');
+Route::post('/logar', "UserController@logar")->name('logar');
 
 
 /*admin*/
