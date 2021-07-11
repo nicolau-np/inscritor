@@ -22,7 +22,7 @@ Route::post('/logar', "UserController@logar")->name('logar');
 
 /*admin*/
 
-Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
+Route::group(['prefix'=>"admin",], function(){
     Route::get('/', "HomeController@index")->name('admin');
 
     Route::resource('/estudante', "EstudanteController");

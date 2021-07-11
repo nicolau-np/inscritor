@@ -330,7 +330,7 @@
 					<ul class="nav nav-primary">
 
                         <li class="nav-item @if($type=="home")active @endif">
-							<a href="/">
+							<a href="/admin/">
 								<i class="fas fa-home"></i>
 								<p>Principal</p>
 							</a>
@@ -344,14 +344,14 @@
                         </li>
 
                         <li class="nav-item">
-							<a href="/estudante">
+							<a href="/admin/estudante">
 								<i class="fas fa-user"></i>
 								<p>Estudante</p>
 							</a>
                         </li>
 
                         <li class="nav-item">
-							<a href="/estudante">
+							<a href="/admin/estudante">
 								<i class="fas fa-key"></i>
 								<p>Usuários</p>
 							</a>
