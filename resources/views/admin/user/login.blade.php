@@ -16,10 +16,10 @@
     }
     }
 
-.form{
-    padding: 4%;
-    border: 1px solid #f5f5f5;
-}
+    .form{
+        padding: 4%;
+        border: 1px solid #f5f5f5;
+    }
 </style>
 
 <div class="container">
@@ -52,10 +52,11 @@
             <label>
                 <input name="remember" type="checkbox" value="Remember Me">&nbsp; {{__('Lembrar Me')}}
             </label>
-        </div>
-        <button type="submit" class="btn btn-primary">
+        </div><br/>
+        <button type="submit" class="btn btn-primary btn-block">
             {{__('Entrar')}}
         </button>
+
         {{Form::close()}}
     </div>
 </div>

@@ -33,8 +33,6 @@ class UserController extends Controller
         } else {
             return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
         }
-
-        //echo $request->password;
     }
 
     public function logout(){
