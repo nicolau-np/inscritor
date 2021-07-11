@@ -31,7 +31,7 @@
 
         @if (session('success'))
         <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
-         @endif
+        @endif
 
         {{Form::open(['method'=>"post", 'url'=>"/logar"])}}
         <div class="form-group">
