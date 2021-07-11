@@ -476,7 +476,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-                            <a href="#">{{$sumenu}}</a>
+                            <a href="#">{{$submenu}}</a>
 							</li>
 							<li class="separator">
 								<i class="flaticon-right-arrow"></i>
