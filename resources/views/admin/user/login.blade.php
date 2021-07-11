@@ -49,7 +49,7 @@
         &nbsp;
         <div class="checkbox">
             <label>
-                <input name="remember" type="checkbox" value="Remember Me">{{__('Lembrar Me')}}
+                <input name="remember" type="checkbox" value="Remember Me">&nbsp; {{__('Lembrar Me')}}
             </label>
         </div>
         <button type="submit" class="btn btn-primary">
