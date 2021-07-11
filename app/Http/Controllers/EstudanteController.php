@@ -13,7 +13,14 @@ class EstudanteController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'title'=>"Estudantes",
+            'menu'=>"Estudante",
+            'submenu'=>"Listar",
+            'type'=>"estudante",
+            'config'=>null,
+        ];
+        return view('admin.estudante.list', $data);
     }
 
     /**
@@ -23,7 +30,14 @@ class EstudanteController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title'=>"Estudantes",
+            'menu'=>"Estudante",
+            'submenu'=>"Novo",
+            'type'=>"estudante",
+            'config'=>null,
+        ];
+        return view('admin.estudante.create', $data);
     }
 
     /**

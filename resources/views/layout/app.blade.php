@@ -343,7 +343,7 @@
 							<h4 class="text-section">Institucional</h4>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item @if($type=="estudante") active @endif">
 							<a href="/admin/estudante">
 								<i class="fas fa-user"></i>
 								<p>Estudante</p>
