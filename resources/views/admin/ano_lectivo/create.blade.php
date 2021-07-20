@@ -5,7 +5,7 @@
         <div class="card-header">
         <div class="card-title">{{$submenu}}</div>
             <div class="card-category">
-            <a href="/admin/ano_lectivo/" class="btn btn-success">Listar<h2>{{$getEstudantes->count()}}</h2></a>
+            <a href="/admin/ano_lectivo/" class="btn btn-success">Listar</a>
             </div>
         </div>
         <div class="card-body">
