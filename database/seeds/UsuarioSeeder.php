@@ -28,6 +28,14 @@ class UsuarioSeeder extends Seeder
                     'nivel_acesso' => "admin",
                     'estado' => "on",
                 ),
+                array(
+                    'id_pessoa' => 2,
+                    'id_instituicao' => 2,
+                    'email' => "major@gmail.com",
+                    'password' => Hash::make("olaola1"),
+                    'nivel_acesso' => "user",
+                    'estado' => "on",
+                ),
 
             )
 
