@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Instituicao;
+use App\NivelInstituicao;
+use App\TipoInstituicao;
 use Illuminate\Http\Request;
 
 class EscolaController extends Controller
@@ -33,13 +35,16 @@ class EscolaController extends Controller
      */
     public function create()
     {
-
+        $tipo_instituicaos = TipoInstituicao::pluck('tipo', 'id');
+        $nivel_instituicaos = NivelInstituicao::pluck('nivel', 'id');
         $data = [
             'title' => "Escolas",
             'menu' => "Escolas",
-            'submenu' => "Listar",
+            'submenu' => "Novo",
             'type' => "configuracoes",
             'config' => null,
+            'getTipoInstituicao'=>$tipo_instituicaos,
+            'getNivelInstituicao'=>$nivel_instituicaos,
         ];
         return view('admin.escola.create', $data);
     }
