@@ -126,6 +126,10 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
+        $estudante = Estudante::find($id);
+        if(!$estudante){
+            return back()->with(['error'=>"Não encontrou estudante"]);
+        }
         $cursos = Curso::where(['estado'=>"on"])->pluck('curso', 'id');
         $turnos = Turno::where(['estado'=>"on"])->pluck('turno', 'id');
         $anos_lectivos = AnoLectivo::where(['estado'=>"on"])->pluck('ano_lectivo', 'id');
@@ -139,8 +143,9 @@ class EstudanteController extends Controller
             'getCursos'=>$cursos,
             'getTurnos'=>$turnos,
             'getAnosLectivos'=>$anos_lectivos,
+            'getEstudante'=>$estudante,
         ];
-        return view('admin.estudante.create', $data);
+        return view('admin.estudante.edit', $data);
     }
 
     /**
