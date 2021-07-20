@@ -404,7 +404,7 @@
 										</a>
                                     </li>
 
-									<li>
+									<li class="@if($menu=='Escolas') active @endif">
 										<a href="/admin/escolas">
 											<span class="sub-item">Escolas</span>
 										</a>
