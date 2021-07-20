@@ -29,8 +29,8 @@
                     <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudante->pessoa->nome}}</td>
-                    <td>{{$estudante->genero}}</td>
-                        <td>{{$estudante->data_nascimento}}</td>
+                    <td>{{$estudante->pessoa->genero}}</td>
+                        <td>{{date('d-m-Y', strtotime($estudante->pessoa->data_nascimento))}}</td>
                         <td>{{$estudante->curso->curso}}</td>
                         <td>{{$estudante->turno->turno}}</td>
                         <td>
