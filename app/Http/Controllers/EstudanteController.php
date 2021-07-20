@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\AnoLectivo;
+use App\Curso;
+use App\Estudante;
+use App\Pessoa;
+use App\Turno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EstudanteController extends Controller
 {
@@ -14,11 +20,11 @@ class EstudanteController extends Controller
     public function index()
     {
         $data = [
-            'title'=>"Estudantes",
-            'menu'=>"Estudante",
-            'submenu'=>"Listar",
-            'type'=>"estudante",
-            'config'=>null,
+            'title' => "Estudantes",
+            'menu' => "Estudante",
+            'submenu' => "Listar",
+            'type' => "estudante",
+            'config' => null,
         ];
         return view('admin.estudante.list', $data);
     }
@@ -30,12 +36,19 @@ class EstudanteController extends Controller
      */
     public function create()
     {
+        $cursos = Curso::where(['estado'=>"on"])->pluck('curso', 'id');
+        $turnos = Turno::where(['estado'=>"on"])->pluck('turno', 'id');
+        $anos_lectivos = AnoLectivo::where(['estado'=>"on"])->pluck('ano_lectivo', 'id');
+
         $data = [
-            'title'=>"Estudantes",
-            'menu'=>"Estudante",
-            'submenu'=>"Novo",
-            'type'=>"estudante",
-            'config'=>null,
+            'title' => "Estudantes",
+            'menu' => "Estudante",
+            'submenu' => "Novo",
+            'type' => "estudante",
+            'config' => null,
+            'getCursos'=>$cursos,
+            'getTurnos'=>$turnos,
+            'getAnosLectivos'=>$anos_lectivos,
         ];
         return view('admin.estudante.create', $data);
     }
@@ -49,17 +62,46 @@ class EstudanteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome'=>['required', 'string', 'min:10', 'max:255'],
-            'genero'=>['required', 'string', 'min:1', 'max:2'],
-            'data_nascimento' =>['required', 'date',],
+            'nome' => ['required', 'string', 'min:10', 'max:255'],
+            'genero' => ['required', 'string', 'min:1', 'max:2'],
+            'data_nascimento' => ['required', 'date',],
 
-            'curso'=>['required', 'integer', 'min:1'],
-            'turno'=>['required', 'integer', 'min:1'],
-            'ano_lectivo'=>['required', 'integer', 'min:1'],
+            'curso' => ['required', 'integer', 'min:1'],
+            'turno' => ['required', 'integer', 'min:1'],
+            'ano_lectivo' => ['required', 'integer', 'min:1'],
         ]);
 
-        $data['pessoa'] = [];
-        $data['estudante'] = [];
+        if ($request->bilhete != "") {
+            $request->validate([
+                'bilhete' => ['required', 'string', 'min:9', 'max:25', 'unique:pessoas,bi'],
+            ]);
+        }
+
+        $data['pessoa'] = [
+            'nome' => $request->nome,
+            'bi' => $request->bilhete,
+            'telefone' => $request->telefone,
+            'genero' => $request->genero,
+            'data_nascimento' => $request->data_nascimento,
+        ];
+        $data['estudante'] = [
+            'id_pessoa' => null,
+            'id_instituicao'=>Auth::user()->id_instituicao,
+            'id_curso'=>$request->curso,
+            'id_classe'=>1,
+            'id_turno'=>$request->turno,
+            'id_ano_lectivo'=>$request->ano_lectivo,
+        ];
+
+        $pessoa = Pessoa::create($data['pessoa']);
+        if($pessoa){
+            $data['estudante']['id_pessoa']=$pessoa->id;
+            if(Estudante::create($data['estudante'])){
+                return back()->with(['success'=>"Feito com sucesso"]);
+            }
+
+        }
+
     }
 
     /**

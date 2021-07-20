@@ -80,7 +80,7 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Curso <span class="text-danger">*</span></label>
-                            {{Form::select('curso', [], null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
+                            {{Form::select('curso', $getCursos, null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
                             @if($errors->has('curso'))
                             <span class="text-danger">{{$errors->first('curso')}}</span>
                             @endif
@@ -90,7 +90,7 @@
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Turno <span class="text-danger">*</span></label>
-                            {{Form::select('turno', [], null, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
+                            {{Form::select('turno', $getTurnos, null, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
                             @if($errors->has('turno'))
                             <span class="text-danger">{{$errors->first('turno')}}</span>
                             @endif
@@ -100,7 +100,7 @@
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Ano Lectivo <span class="text-danger">*</span></label>
-                            {{Form::select('ano_lectivo', [], null, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
+                            {{Form::select('ano_lectivo', $getAnosLectivos, null, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
                             @if($errors->has('ano_lectivo'))
                             <span class="text-danger">{{$errors->first('ano_lectivo')}}</span>
                             @endif
