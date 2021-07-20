@@ -26,7 +26,7 @@ Route::get('/logout', "UserController@logout")->name('logout');
 Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
     Route::get('/', "HomeController@index")->name('admin');
 
-    Route::resource('/estudante', "EstudanteController");
+    Route::resource('/estudante', "EstudanteController")->middleware('admin');
 
 });
 
