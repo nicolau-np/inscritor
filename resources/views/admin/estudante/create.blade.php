@@ -12,7 +12,7 @@
 
             <div class="form">
                <div class="row">
-                   <div class="col-md-5">
+                   <div class="col-md-6">
                        <div class="form-group form-group-default">
                        <label>Nome</label>
                        {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
@@ -29,7 +29,41 @@
 
                     </div>
                    </div>
-               </div>
+
+                   <div class="col-md-3">
+                    <div class="form-group form-group-default">
+                        <label>Data de Nascimento</label>
+                        {{Form::date('data_nascimento', null, ['class'=>"form-control", 'placeholder'=>"Data de nascimento"])}}
+
+                    </div>
+                   </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group form-group-default">
+                            <label>Curso</label>
+                            {{Form::select('curso', [], ['class'=>"form-control", 'placeholder'=>"Curso"])}}
+
+                        </div>
+                       </div>
+
+                       <div class="col-md-3">
+                        <div class="form-group form-group-default">
+                            <label>Turno</label>
+                            {{Form::select('turno', [], ['class'=>"form-control", 'placeholder'=>"Turno"])}}
+
+                        </div>
+                       </div>
+
+                       <div class="col-md-3">
+                        <div class="form-group form-group-default">
+                            <label>Ano Lectivo</label>
+                            {{Form::select('ano_lectivo', [], ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
+
+                        </div>
+                       </div>
+                </div>
 
             </div>
 
