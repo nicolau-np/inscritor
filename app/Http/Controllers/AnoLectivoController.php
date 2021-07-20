@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AnoLectivo;
 use Illuminate\Http\Request;
 
 class AnoLectivoController extends Controller
@@ -13,7 +14,16 @@ class AnoLectivoController extends Controller
      */
     public function index()
     {
-        //
+        $anos_lectivos = AnoLectivo::paginate(6);
+        $data = [
+            'title' => "Ano Lectivo",
+            'menu' => "Ano Lectivo",
+            'submenu' => "Listar",
+            'type' => "ano_lectivo",
+            'config' => null,
+            'getAnos_lectivos'=>$anos_lectivos,
+        ];
+        return view('admin.ano_lectivo.list', $data);
     }
 
     /**
