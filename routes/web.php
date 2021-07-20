@@ -28,6 +28,8 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
 
     Route::resource('/estudante', "EstudanteController")->middleware('user');
 
+    Route::resource('/ano_lectivo', "AnoLectivoController")->middleware('master');
+
 });
 
 /*admin*/
