@@ -125,7 +125,29 @@ class EscolaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $escola = Instituicao::find($id);
+        if (!$escola) {
+            return back()->with(['error' => "Não encontrou"]);
+        }
+        $request->validate([
+            'nome' => ['required', 'string', 'min:10', 'max:255'],
+            'bairro' => ['required', 'string', 'min:10', 'max:255'],
+            'estado' => ['required', 'string', 'min:1', 'max:3'],
+            'tipo' => ['required', 'integer', 'min:1'],
+            'nivel' => ['required', 'integer', 'min:1'],
+        ]);
+
+        $data = [
+            'id_tipo_instituicao' => $request->tipo,
+            'id_nivel_instituicao' => $request->nivel,
+            'nome' => $request->nome,
+            'bairro' => $request->bairro,
+            'estado' => $request->estado,
+        ];
+
+        if (Instituicao::find($escola->id)->update($data)) {
+            return back()->with(['success' => "Feito com sucesso"]);
+        }
     }
 
     /**
