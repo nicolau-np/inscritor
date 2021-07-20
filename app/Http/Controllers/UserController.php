@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Instituicao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +42,19 @@ class UserController extends Controller
     }
 
     public function users($id_instituicao){
-        
+        $escola = Instituicao::find($id_instituicao);
+        if(!$escola){
+            return back()->with(['error'=>"Não encontrou"]);
+        }
+
+        $data = [
+            'title' => "Escolas",
+            'menu' => "Escolas",
+            'submenu' => "Usuários",
+            'type' => "configuracoes",
+            'config' => null,
+            
+        ];
+        return view('admin.escola.users', $data);
     }
 }

@@ -89,13 +89,13 @@
 
                    <div class="col-md-3">
                     <div class="form-group form-group-default">
-                        <label>Estado <span class="text-danger">*</span></label>
-                        {{Form::select('estado', [
-                            'on'=>"on",
-                            'off'=>"off"
-                        ], null, ['class'=>"form-control", 'placeholder'=>"Estado"])}}
-                        @if($errors->has('estado'))
-                        <span class="text-danger">{{$errors->first('estado')}}</span>
+                        <label>Nível de Acesso <span class="text-danger">*</span></label>
+                        {{Form::select('nivel', [
+                            'user'=>"user",
+                            'admin'=>"admin"
+                        ], null, ['class'=>"form-control", 'placeholder'=>"Nível de Acessoí"])}}
+                        @if($errors->has('nivel'))
+                        <span class="text-danger">{{$errors->first('nivel')}}</span>
                         @endif
                     </div>
                    </div>
