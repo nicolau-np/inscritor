@@ -29,7 +29,7 @@ class UsuarioSeeder extends Seeder
                     'estado' => "on",
                 ),
                 array(
-                    'id_pessoa' => 2,
+                    'id_pessoa' => 3,
                     'id_instituicao' => 2,
                     'email' => "major@gmail.com",
                     'password' => Hash::make("olaola1"),

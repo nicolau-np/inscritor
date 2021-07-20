@@ -497,7 +497,7 @@
 						<ul class="nav">
 							<li class="nav-item">
 								<a class="nav-link" href="https://www.inscritor.com">
-									Inscritor
+									{{Auth::user()->instituicao->nome}}
 								</a>
 							</li>
 							<li class="nav-item">
