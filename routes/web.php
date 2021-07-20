@@ -32,6 +32,8 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
 
     Route::resource('/cursos', "CursoController")->middleware('master');
 
+    Route::resource('/escolas', "EscolaController")->middleware('master');
+
 });
 
 /*admin*/
