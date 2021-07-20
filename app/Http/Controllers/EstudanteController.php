@@ -196,7 +196,7 @@ class EstudanteController extends Controller
 
         if(Pessoa::find($estudante->pessoa->id)->update($data['pessoa'])){
 
-            if(Estudante::find($estudante->pessoa->id)->update($data['estudante'])){
+            if(Estudante::find($estudante->id)->update($data['estudante'])){
                 return back()->with(['success'=>"Feito com sucesso"]);
             }
 
