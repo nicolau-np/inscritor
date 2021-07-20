@@ -142,7 +142,7 @@ class EstudanteController extends Controller
         $data = [
             'title' => "Estudantes",
             'menu' => "Estudante",
-            'submenu' => "Novo",
+            'submenu' => "Editar",
             'type' => "estudante",
             'config' => null,
             'getCursos'=>$cursos,

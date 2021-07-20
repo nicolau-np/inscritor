@@ -87,7 +87,23 @@ class AnoLectivoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ano_lectivo = AnoLectivo::find($id);
+        if(!$ano_lectivo){
+            return back()->with(['error'=>"Nao encontrou ano lectivo"]);
+        }
+
+        $string_ano = explode(' - ', $ano_lectivo->ano_lectivo);
+        $data = [
+            'title' => "Ano Lectivo",
+            'menu' => "Ano Lectivo",
+            'submenu' => "Editar",
+            'type' => "configuracoes",
+            'config' => null,
+            'getAno_lectivo'=>$ano_lectivo,
+            'getAnoinicio'=>$string_ano[0],
+            'getAnofim'=>$string_ano[1],
+        ];
+        return view('admin.ano_lectivo.edit', $data);
     }
 
     /**
