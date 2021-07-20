@@ -115,7 +115,25 @@ class AnoLectivoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ano_lectivo = AnoLectivo::find($id);
+        if(!$ano_lectivo){
+            return back()->with(['error'=>"Nao encontrou ano lectivo"]);
+        }
+
+        $request->validate([
+            'ano_inicio' => ['required', 'integer', 'min:1'],
+            'ano_fim' => ['required', 'integer', 'min:1'],
+            'estado' => ['required', 'string', 'min:1', 'max:3'],
+        ]);
+        $ano_lectivo1 = $request->ano_inicio . ' - ' . $request->ano_fim;
+        $data = [
+            'ano_lectivo' => $ano_lectivo1,
+            'estado' => $request->estado,
+        ];
+
+        if (AnoLectivo::find($ano_lectivo->id)->update($data)) {
+            return back()->with(['success' => "Feito com sucesso"]);
+        }
     }
 
     /**
