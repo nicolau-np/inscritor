@@ -16,7 +16,7 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->acesso == "user"){
+        if(Auth::check() && Auth::user()->nivel_acesso == "user"){
             return $next($request);
         }
         return redirect('/admin/');

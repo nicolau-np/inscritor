@@ -16,7 +16,7 @@ class Master
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->acesso == "master"){
+        if(Auth::check() && Auth::user()->nivel_acesso == "master"){
             return $next($request);
         }
         return redirect('/admin/');
