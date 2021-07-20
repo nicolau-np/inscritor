@@ -30,6 +30,8 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
 
     Route::resource('/ano_lectivo', "AnoLectivoController")->middleware('master');
 
+    Route::resource('/cursos', "CursoController")->middleware('master');
+
 });
 
 /*admin*/

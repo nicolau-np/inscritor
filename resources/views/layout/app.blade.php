@@ -398,8 +398,8 @@
 										</a>
                                     </li>
 
-                                    <li>
-										<a href="forms/forms.html">
+                                    <li class="@if($menu=='Cursos') active @endif">
+										<a href="/admin/cursos">
 											<span class="sub-item">Cursos</span>
 										</a>
                                     </li>
