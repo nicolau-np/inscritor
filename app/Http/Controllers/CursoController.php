@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -13,7 +14,16 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Curso::paginate(6);
+        $data = [
+            'title' => "Cursos",
+            'menu' => "Cursos",
+            'submenu' => "Listar",
+            'type' => "configuracoes",
+            'config' => null,
+            'getCursos' => $cursos,
+        ];
+        return view('admin.curso.list', $data);
     }
 
     /**
