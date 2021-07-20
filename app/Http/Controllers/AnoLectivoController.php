@@ -33,7 +33,7 @@ class AnoLectivoController extends Controller
      */
     public function create()
     {
-        
+
         $data = [
             'title' => "Ano Lectivo",
             'menu' => "Ano Lectivo",
@@ -41,7 +41,7 @@ class AnoLectivoController extends Controller
             'type' => "configuracoes",
             'config' => null,
         ];
-        return view('admin.ano_lectivo.list', $data);
+        return view('admin.ano_lectivo.create', $data);
     }
 
     /**
