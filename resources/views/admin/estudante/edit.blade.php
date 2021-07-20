@@ -25,7 +25,7 @@
                    <div class="col-md-5">
                        <div class="form-group form-group-default">
                        <label>Nome completo <span class="text-danger">*</span></label>
-                       {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
+                       {{Form::text('nome', $getEstudante->pessoa->nome, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
                        @if($errors->has('nome'))
                         <span class="text-danger">{{$errors->first('nome')}}</span>
                         @endif
@@ -38,7 +38,7 @@
                         {{Form::select('genero', [
                             'M'=>"Masculino",
                             'F'=>"Femenino",
-                        ], null, ['class'=>"form-control", 'placeholder'=>"Gênero"])}}
+                        ], $getEstudante->pessoa->genero, ['class'=>"form-control", 'placeholder'=>"Gênero"])}}
                         @if($errors->has('genero'))
                             <span class="text-danger">{{$errors->first('genero')}}</span>
                         @endif
@@ -48,7 +48,7 @@
                    <div class="col-md-3">
                     <div class="form-group form-group-default">
                         <label>Data de Nascimento <span class="text-danger">*</span></label>
-                        {{Form::date('data_nascimento', null, ['class'=>"form-control", 'placeholder'=>"Data de nascimento"])}}
+                        {{Form::date('data_nascimento', $getEstudante->pessoa->data_nascimento, ['class'=>"form-control", 'placeholder'=>"Data de nascimento"])}}
                         @if($errors->has('data_nascimento'))
                             <span class="text-danger">{{$errors->first('data_nascimento')}}</span>
                         @endif
@@ -58,7 +58,7 @@
                    <div class="col-md-5">
                     <div class="form-group form-group-default">
                         <label>Bilhete</label>
-                        {{Form::text('bilhete', null, ['class'=>"form-control", 'placeholder'=>"Nº do Bilhete"])}}
+                        {{Form::text('bilhete', $getEstudante->pessoa->bilhete, ['class'=>"form-control", 'placeholder'=>"Nº do Bilhete"])}}
                         @if($errors->has('bilhete'))
                             <span class="text-danger">{{$errors->first('bilhete')}}</span>
                         @endif
@@ -68,7 +68,7 @@
                    <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Telefone</label>
-                        {{Form::text('telefone', null, ['class'=>"form-control", 'placeholder'=>"Nº de Telefone"])}}
+                        {{Form::text('telefone', $getEstudante->pessoa->telefone, ['class'=>"form-control", 'placeholder'=>"Nº de Telefone"])}}
                         @if($errors->has('telefone'))
                             <span class="text-danger">{{$errors->first('telefone')}}</span>
                         @endif
@@ -80,7 +80,7 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Curso <span class="text-danger">*</span></label>
-                            {{Form::select('curso', $getCursos, null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
+                            {{Form::select('curso', $getCursos, $getEstudante->id_curso, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
                             @if($errors->has('curso'))
                             <span class="text-danger">{{$errors->first('curso')}}</span>
                             @endif
@@ -90,7 +90,7 @@
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Turno <span class="text-danger">*</span></label>
-                            {{Form::select('turno', $getTurnos, null, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
+                            {{Form::select('turno', $getTurnos, $getEstudante->id_turno, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
                             @if($errors->has('turno'))
                             <span class="text-danger">{{$errors->first('turno')}}</span>
                             @endif
@@ -100,7 +100,7 @@
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Ano Lectivo <span class="text-danger">*</span></label>
-                            {{Form::select('ano_lectivo', $getAnosLectivos, null, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
+                            {{Form::select('ano_lectivo', $getAnosLectivos, $getEstudante->id_ano_lectivo, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
                             @if($errors->has('ano_lectivo'))
                             <span class="text-danger">{{$errors->first('ano_lectivo')}}</span>
                             @endif
