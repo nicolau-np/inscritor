@@ -384,7 +384,7 @@
 							</span>
 							<h4 class="text-section">Extras</h4>
                         </li>
-						<li class="nav-item @if($type=='configuracoes') active @endif">
+						<li class="nav-item @if($type=='configuracoes') active submenu @endif">
 							<a data-toggle="collapse" href="#forms">
 								<i class="fas fa-pen-square"></i>
 								<p>Configurações</p>
