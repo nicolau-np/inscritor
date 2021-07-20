@@ -85,7 +85,19 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+        if(!$curso){
+            return back()->with(['error'=>"Não encontrou"]);
+        }
+
+        $data = [
+            'title' => "Cursos",
+            'menu' => "Cursos",
+            'submenu' => "Editar",
+            'type' => "configuracoes",
+            'config' => null,
+        ];
+        return view('admin.curso.edit', $data);
     }
 
     /**
