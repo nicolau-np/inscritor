@@ -11,6 +11,16 @@
         <div class="card-body">
 
             <div class="form">
+
+                @if (session('error'))
+                    <div class="alert bg-danger" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em> {{__(session('error'))}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+                @endif
+
+                @if (session('success'))
+                    <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+                @endif
+                
+                {{Form::open(['method'=>"post", 'url' =>"/admin/estudante/store"])}}
                <div class="row">
                    <div class="col-md-6">
                        <div class="form-group form-group-default">
@@ -65,6 +75,13 @@
                        </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        {{Form::submit('Salvar', ['class'=>"btn btn-primary"])}}
+                    </div>
+                </div>
+
+                {{Form::close()}}
             </div>
 
         </div>
