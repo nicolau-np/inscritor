@@ -39,4 +39,8 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function users($id_instituicao){
+
+    }
 }
