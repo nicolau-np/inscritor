@@ -452,7 +452,7 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
                             <h2 class="text-white pb-2 fw-bold">{{$menu}}</h2>
-								<h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
+								<h5 class="text-white op-7 mb-2">{{Auth::user()->instituicao->nome}}</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 								<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
@@ -496,7 +496,7 @@
 					<nav class="pull-left">
 						<ul class="nav">
 							<li class="nav-item">
-								<a class="nav-link" href="https://www.inscritor.com">
+								<a class="nav-link" href="#">
 									{{Auth::user()->instituicao->nome}}
 								</a>
 							</li>
