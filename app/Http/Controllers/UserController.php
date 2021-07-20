@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Instituicao;
+use App\Pessoa;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -81,6 +84,7 @@ class UserController extends Controller
             ]);
         }
 
+        $palavra_passe = Hash::make("inscritor2021");
         $data['pessoa'] = [
             'nome' => $request->nome,
             'bi' => $request->bilhete,
@@ -90,12 +94,20 @@ class UserController extends Controller
         ];
 
         $data['user']=[
-            'id_pessoa',
-            'id_instituicao',
-            'email',
-            'password',
-            'nivel_acesso',
-            'estado',
+            'id_pessoa'=>null,
+            'id_instituicao'=>$id_instituicao,
+            'email'=>$request->email,
+            'password'=>$palavra_passe,
+            'nivel_acesso'=>$request->nivel,
+            'estado'=>"on",
         ];
+
+        $pessoa = Pessoa::create($data['pessoa']);
+        if($pessoa){
+            $data['user']['id_pessoa']=$pessoa->id;
+            if(User::create($data['user'])){
+                return back()->with(['success' => "Feito com sucesso"]);
+            }
+        }
     }
 }
