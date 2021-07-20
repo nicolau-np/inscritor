@@ -22,7 +22,7 @@
 
                 {{Form::open(['method'=>"post", 'url' =>"/admin/estudante"])}}
                <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-5">
                        <div class="form-group form-group-default">
                        <label>Nome</label>
                        {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
@@ -32,13 +32,13 @@
                        </div>
                    </div>
 
-                   <div class="col-md-3">
+                   <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Gênero</label>
                         {{Form::select('genero', [
                             'M'=>"Masculino",
                             'F'=>"Femenino",
-                        ], ['class'=>"form-control", 'placeholder'=>"Gênero"])}}
+                        ], null, ['class'=>"form-control", 'placeholder'=>"Gênero"])}}
                         @if($errors->has('genero'))
                             <span class="text-danger">{{$errors->first('genero')}}</span>
                         @endif
@@ -60,27 +60,27 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Curso</label>
-                            {{Form::select('curso', [], ['class'=>"form-control", 'placeholder'=>"Curso"])}}
+                            {{Form::select('curso', [], null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
                             @if($errors->has('curso'))
                             <span class="text-danger">{{$errors->first('curso')}}</span>
                             @endif
                         </div>
                        </div>
 
-                       <div class="col-md-3">
+                       <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Turno</label>
-                            {{Form::select('turno', [], ['class'=>"form-control", 'placeholder'=>"Turno"])}}
+                            {{Form::select('turno', [], null, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
                             @if($errors->has('turno'))
                             <span class="text-danger">{{$errors->first('turno')}}</span>
                             @endif
                         </div>
                        </div>
 
-                       <div class="col-md-3">
+                       <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Ano Lectivo</label>
-                            {{Form::select('ano_lectivo', [], ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
+                            {{Form::select('ano_lectivo', [], null, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
                             @if($errors->has('ano_lectivo'))
                             <span class="text-danger">{{$errors->first('ano_lectivo')}}</span>
                             @endif
