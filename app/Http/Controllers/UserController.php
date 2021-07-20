@@ -41,6 +41,6 @@ class UserController extends Controller
     }
 
     public function users($id_instituicao){
-
+        
     }
 }
