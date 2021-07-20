@@ -393,7 +393,7 @@
 							<div class="collapse" id="forms">
 								<ul class="nav nav-collapse">
                                     <li>
-										<a href="forms/forms.html">
+										<a href="/admin/ano_lectivo">
 											<span class="sub-item">Ano Lectivo</span>
 										</a>
                                     </li>
