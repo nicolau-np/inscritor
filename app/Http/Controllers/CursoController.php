@@ -96,6 +96,7 @@ class CursoController extends Controller
             'submenu' => "Editar",
             'type' => "configuracoes",
             'config' => null,
+            'getCurso'=> $curso->id,
         ];
         return view('admin.curso.edit', $data);
     }
@@ -109,7 +110,24 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+        if(!$curso){
+            return back()->with(['error'=>"Não encontrou"]);
+        }
+
+        $request->validate([
+            'curso' => ['required', 'string', 'min:10', 'max:255'],
+            'estado' => ['required', 'string', 'min:1', 'max:3'],
+        ]);
+
+        $data = [
+            'curso' => $request->curso,
+            'estado' => $request->estado,
+        ];
+
+        if(Curso::find($curso->id)->update($data)){
+            return back()->with(['success' => "Feito com sucesso"]);
+        }
     }
 
     /**
