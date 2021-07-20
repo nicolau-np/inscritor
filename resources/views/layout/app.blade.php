@@ -405,7 +405,7 @@
                                     </li>
 
 									<li>
-										<a href="forms/forms.html">
+										<a href="/admin/escolas">
 											<span class="sub-item">Escolas</span>
 										</a>
                                     </li>
