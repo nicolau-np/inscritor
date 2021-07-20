@@ -1,15 +1,19 @@
 @extends('layout.app')
-
 @section('content')
 <div class="col-md-12">
     <div class="card">
-        <div class="carde-header">
-            <div class="card-title">
-                title
+        <div class="card-header">
+        <div class="card-title">{{$submenu}}</div>
+            <div class="card-category">
+                <a href="/admin/estudante/create" class="btn btn-success">Novo</a>
             </div>
         </div>
         <div class="card-body">
-            body
+
+            <div class="form">
+         
+            </div>
+
         </div>
     </div>
 </div>
