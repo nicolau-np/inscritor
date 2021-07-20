@@ -25,7 +25,7 @@
                    <div class="col-md-5">
                        <div class="form-group form-group-default">
                        <label>Nome <span class="text-danger">*</span></label>
-                       {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
+                       {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome da instituição"])}}
                        @if($errors->has('nome'))
                         <span class="text-danger">{{$errors->first('nome')}}</span>
                         @endif

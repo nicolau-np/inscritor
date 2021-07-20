@@ -35,8 +35,8 @@ class EscolaController extends Controller
      */
     public function create()
     {
-        $tipo_instituicaos = TipoInstituicao::pluck('tipo', 'id');
-        $nivel_instituicaos = NivelInstituicao::pluck('nivel', 'id');
+        $tipo_instituicaos = TipoInstituicao::where('tipo', '!=', 'Master')->pluck('tipo', 'id');
+        $nivel_instituicaos = NivelInstituicao::where('nivel', '!=', 'master')->pluck('nivel', 'id');
         $data = [
             'title' => "Escolas",
             'menu' => "Escolas",
