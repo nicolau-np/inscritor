@@ -58,22 +58,22 @@ class EscolaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome'=>['required', 'string', 'min:10', 'max:255'],
-            'bairro'=> ['required', 'string', 'min:10', 'max:255'],
+            'nome' => ['required', 'string', 'min:10', 'max:255'],
+            'bairro' => ['required', 'string', 'min:10', 'max:255'],
             'estado' => ['required', 'string', 'min:1', 'max:3'],
-            'tipo'=> ['required', 'integer', 'min:1'],
+            'tipo' => ['required', 'integer', 'min:1'],
             'nivel' => ['required', 'integer', 'min:1'],
         ]);
 
         $data = [
-            'id_tipo_instituicao'=>$request->tipo,
-            'id_nivel_instituicao'=>$request->nivel,
-            'nome'=>$request->nome,
-            'bairro'=> $request->bairro,
-            'estado'=> $request->estado,
+            'id_tipo_instituicao' => $request->tipo,
+            'id_nivel_instituicao' => $request->nivel,
+            'nome' => $request->nome,
+            'bairro' => $request->bairro,
+            'estado' => $request->estado,
         ];
 
-        if(Instituicao::create($data)){
+        if (Instituicao::create($data)) {
             return back()->with(['success' => "Feito com sucesso"]);
         }
     }
@@ -97,7 +97,23 @@ class EscolaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $escola = Instituicao::find($id);
+        if (!$escola) {
+            return back()->with(['error' => "Não encontrou"]);
+        }
+        $tipo_instituicaos = TipoInstituicao::where('tipo', '!=', 'Master')->pluck('tipo', 'id');
+        $nivel_instituicaos = NivelInstituicao::where('nivel', '!=', 'master')->pluck('nivel', 'id');
+        $data = [
+            'title' => "Escolas",
+            'menu' => "Escolas",
+            'submenu' => "Novo",
+            'type' => "configuracoes",
+            'config' => null,
+            'getTipoInstituicao' => $tipo_instituicaos,
+            'getNivelInstituicao' => $nivel_instituicaos,
+            'getEscola'=>$escola,
+        ];
+        return view('admin.escola.edit', $data);
     }
 
     /**
