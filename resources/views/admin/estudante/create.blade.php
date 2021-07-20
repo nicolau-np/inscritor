@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"post", 'url' =>"/admin/estudante/store"])}}
+                {{Form::open(['method'=>"post", 'url' =>"/admin/estudante"])}}
                <div class="row">
                    <div class="col-md-6">
                        <div class="form-group form-group-default">

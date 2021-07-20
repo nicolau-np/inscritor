@@ -48,7 +48,18 @@ class EstudanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'=>['required', 'string', 'min:10', 'max:255'],
+            'genero'=>['required', 'string', 'min:1', 'max:2'],
+            'data_nascimento' =>['required', 'date',],
+
+            'curso'=>['required', 'integer', 'min:1'],
+            'turno'=>['required', 'integer', 'min:1'],
+            'ano_lectivo'=>['required', 'integer', 'min:1'],
+        ]);
+
+        $data['pessoa'] = [];
+        $data['estudante'] = [];
     }
 
     /**
