@@ -14,7 +14,7 @@ class EscolaController extends Controller
      */
     public function index()
     {
-        $escolas = Instituicao::paginate(6);
+        $escolas = Instituicao::where('nome', '!=', 'Master')->paginate(6);
         $data = [
             'title' => "Escolas",
             'menu' => "Escolas",

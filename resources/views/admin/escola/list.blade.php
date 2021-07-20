@@ -34,7 +34,7 @@
                         <td>{{$escolas->bairro}}</td>
                         <td>{{$escolas->estado}}</td>
                         <td>
-                            <a href="/admin/escolas/{{$curso->id}}/edit" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="/admin/escolas/{{$escolas->id}}/edit" class="btn btn-primary btn-sm">Editar</a>
                         </td>
                     </tr>
 
