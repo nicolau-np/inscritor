@@ -126,7 +126,21 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cursos = Curso::where(['estado'=>"on"])->pluck('curso', 'id');
+        $turnos = Turno::where(['estado'=>"on"])->pluck('turno', 'id');
+        $anos_lectivos = AnoLectivo::where(['estado'=>"on"])->pluck('ano_lectivo', 'id');
+
+        $data = [
+            'title' => "Estudantes",
+            'menu' => "Estudante",
+            'submenu' => "Novo",
+            'type' => "estudante",
+            'config' => null,
+            'getCursos'=>$cursos,
+            'getTurnos'=>$turnos,
+            'getAnosLectivos'=>$anos_lectivos,
+        ];
+        return view('admin.estudante.create', $data);
     }
 
     /**
