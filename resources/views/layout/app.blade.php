@@ -390,9 +390,9 @@
 								<p>Configurações</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="forms">
+							<div class="collapse @if($type=='configuracoes') show @endif" id="forms">
 								<ul class="nav nav-collapse">
-                                    <li>
+                                    <li class="@if($menu=='Ano Lectivo') active @endif">
 										<a href="/admin/ano_lectivo">
 											<span class="sub-item">Ano Lectivo</span>
 										</a>
