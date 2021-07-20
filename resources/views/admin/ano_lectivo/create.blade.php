@@ -22,7 +22,7 @@
 
                 {{Form::open(['method'=>"post", 'url' =>"/admin/ano_lectivo"])}}
                <div class="row">
-                   <div class="col-md-5">
+                   <div class="col-md-4">
                        <div class="form-group form-group-default">
                        <label>Ano Início<span class="text-danger">*</span></label>
                        {{Form::number('ano_inicio', null, ['class'=>"form-control", 'placeholder'=>"Ano Inicio"])}}
@@ -32,7 +32,7 @@
                        </div>
                    </div>
 
-                   <div class="col-md-5">
+                   <div class="col-md-4">
                     <div class="form-group form-group-default">
                     <label>Ano Fim<span class="text-danger">*</span></label>
                     {{Form::number('ano_fim', null, ['class'=>"form-control", 'placeholder'=>"Ano Fim"])}}
