@@ -159,6 +159,11 @@ class EstudanteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $estudante = Estudante::find($id);
+        if(!$estudante){
+            return back()->with(['error'=>"Não encontrou estudante"]);
+        }
+
         $request->validate([
             'nome' => ['required', 'string', 'min:10', 'max:255'],
             'genero' => ['required', 'string', 'min:1', 'max:2'],
@@ -169,7 +174,7 @@ class EstudanteController extends Controller
             'ano_lectivo' => ['required', 'integer', 'min:1'],
         ]);
 
-        if ($request->bilhete != "") {
+        if ($request->bilhete != $estudante->pessoa->bi) {
             $request->validate([
                 'bilhete' => ['required', 'string', 'min:9', 'max:25', 'unique:pessoas,bi'],
             ]);
@@ -183,18 +188,15 @@ class EstudanteController extends Controller
             'data_nascimento' => $request->data_nascimento,
         ];
         $data['estudante'] = [
-            'id_pessoa' => null,
-            'id_instituicao'=>Auth::user()->id_instituicao,
             'id_curso'=>$request->curso,
-            'id_classe'=>1,
             'id_turno'=>$request->turno,
             'id_ano_lectivo'=>$request->ano_lectivo,
         ];
 
-        $pessoa = Pessoa::create($data['pessoa']);
-        if($pessoa){
-            $data['estudante']['id_pessoa']=$pessoa->id;
-            if(Estudante::create($data['estudante'])){
+
+        if(Pessoa::find($estudante->pessoa->id)->update($data['pessoa'])){
+
+            if(Estudante::find($estudante->pessoa->id)->update($data['estudante'])){
                 return back()->with(['success'=>"Feito com sucesso"]);
             }
 
