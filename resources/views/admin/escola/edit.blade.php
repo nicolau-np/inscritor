@@ -25,7 +25,7 @@
                    <div class="col-md-5">
                        <div class="form-group form-group-default">
                        <label>Nome <span class="text-danger">*</span></label>
-                       {{Form::text('nome', $getEscola->, ['class'=>"form-control", 'placeholder'=>"Nome da instituição"])}}
+                       {{Form::text('nome', $getEscola->nome, ['class'=>"form-control", 'placeholder'=>"Nome da instituição"])}}
                        @if($errors->has('nome'))
                         <span class="text-danger">{{$errors->first('nome')}}</span>
                         @endif
@@ -35,7 +35,7 @@
                    <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Bairro <span class="text-danger">*</span></label>
-                        {{Form::text('bairro', null, ['class'=>"form-control", 'placeholder'=>"Bairro"])}}
+                        {{Form::text('bairro', $getEscola->bairro, ['class'=>"form-control", 'placeholder'=>"Bairro"])}}
                         @if($errors->has('bairro'))
                             <span class="text-danger">{{$errors->first('bairro')}}</span>
                         @endif
@@ -48,7 +48,7 @@
                         {{Form::select('estado', [
                             'on'=>"on",
                             'off'=>"off"
-                        ], null, ['class'=>"form-control", 'placeholder'=>"Estado"])}}
+                        ], $getEscola->estado, ['class'=>"form-control", 'placeholder'=>"Estado"])}}
                         @if($errors->has('estado'))
                         <span class="text-danger">{{$errors->first('estado')}}</span>
                         @endif
@@ -60,7 +60,7 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Tipo de Instituição <span class="text-danger">*</span></label>
-                            {{Form::select('tipo', $getTipoInstituicao, null, ['class'=>"form-control", 'placeholder'=>"Tipo de Instiuição"])}}
+                            {{Form::select('tipo', $getTipoInstituicao, $getEscola->id_tipo_instituicao, ['class'=>"form-control", 'placeholder'=>"Tipo de Instiuição"])}}
                             @if($errors->has('tipo'))
                             <span class="text-danger">{{$errors->first('tipo')}}</span>
                             @endif
@@ -70,7 +70,7 @@
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
                             <label>Nível de Instituição <span class="text-danger">*</span></label>
-                            {{Form::select('nivel', $getNivelInstituicao, null, ['class'=>"form-control", 'placeholder'=>"Nível de Instituição"])}}
+                            {{Form::select('nivel', $getNivelInstituicao, $getEscola->id_nivel_instituicao, ['class'=>"form-control", 'placeholder'=>"Nível de Instituição"])}}
                             @if($errors->has('nivel'))
                             <span class="text-danger">{{$errors->first('nivel')}}</span>
                             @endif
