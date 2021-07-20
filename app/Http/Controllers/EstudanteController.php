@@ -39,6 +39,8 @@ class EstudanteController extends Controller
      */
     public function create()
     {
+        $id_instituicao = Auth::user()->id_instituicao;
+        $estudantes = Estudante::where(['id_instituicao'=>$id_instituicao])->get();
         $cursos = Curso::where(['estado'=>"on"])->pluck('curso', 'id');
         $turnos = Turno::where(['estado'=>"on"])->pluck('turno', 'id');
         $anos_lectivos = AnoLectivo::where(['estado'=>"on"])->pluck('ano_lectivo', 'id');
@@ -52,6 +54,7 @@ class EstudanteController extends Controller
             'getCursos'=>$cursos,
             'getTurnos'=>$turnos,
             'getAnosLectivos'=>$anos_lectivos,
+            'getEstudantes'=>$estudantes,
         ];
         return view('admin.estudante.create', $data);
     }
