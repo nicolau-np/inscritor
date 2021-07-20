@@ -34,7 +34,7 @@
                         <td>{{$estudante->curso->curso}}</td>
                         <td>{{$estudante->turno->turno}}</td>
                         <td>
-
+                            <a href="/admin/estudante/edit/{$estudante->id}" class="btn btn-primary btn-sm">Editar</a>
                         </td>
                     </tr>
 
