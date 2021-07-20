@@ -68,7 +68,7 @@
                    <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Telefone</label>
-                        {{Form::text('telefone', null, ['class'=>"form-control", 'placeholder'=>"Nº de Telefone"])}}
+                        {{Form::number('telefone', null, ['class'=>"form-control", 'placeholder'=>"Nº de Telefone"])}}
                         @if($errors->has('telefone'))
                             <span class="text-danger">{{$errors->first('telefone')}}</span>
                         @endif
