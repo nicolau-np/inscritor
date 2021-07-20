@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Instituicao;
 use Illuminate\Http\Request;
 
 class EscolaController extends Controller
@@ -13,7 +14,16 @@ class EscolaController extends Controller
      */
     public function index()
     {
-        //
+        $escolas = Instituicao::paginate(6);
+        $data = [
+            'title' => "Escolas",
+            'menu' => "Escolas",
+            'submenu' => "Listar",
+            'type' => "configuracoes",
+            'config' => null,
+            'getEscolas' => $escolas,
+        ];
+        return view('admin.escola.list', $data);
     }
 
     /**
