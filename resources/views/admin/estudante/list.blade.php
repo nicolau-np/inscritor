@@ -5,7 +5,7 @@
         <div class="card-header">
         <div class="card-title">{{$submenu}}</div>
             <div class="card-category">
-                <a href="/estudante/create" class="btn btn-success">Novo</a>
+                <a href="/admin/estudante/create" class="btn btn-success">Novo</a>
             </div>
         </div>
         <div class="card-body">
