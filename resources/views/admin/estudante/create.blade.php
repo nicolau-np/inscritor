@@ -24,7 +24,7 @@
                <div class="row">
                    <div class="col-md-5">
                        <div class="form-group form-group-default">
-                       <label>Nome</label>
+                       <label>Nome completo <span class="text-danger">*</span></label>
                        {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
                        @if($errors->has('nome'))
                         <span class="text-danger">{{$errors->first('nome')}}</span>
@@ -34,7 +34,7 @@
 
                    <div class="col-md-4">
                     <div class="form-group form-group-default">
-                        <label>Gênero</label>
+                        <label>Gênero <span class="text-danger">*</span></label>
                         {{Form::select('genero', [
                             'M'=>"Masculino",
                             'F'=>"Femenino",
@@ -47,7 +47,7 @@
 
                    <div class="col-md-3">
                     <div class="form-group form-group-default">
-                        <label>Data de Nascimento</label>
+                        <label>Data de Nascimento <span class="text-danger">*</span></label>
                         {{Form::date('data_nascimento', null, ['class'=>"form-control", 'placeholder'=>"Data de nascimento"])}}
                         @if($errors->has('data_nascimento'))
                             <span class="text-danger">{{$errors->first('data_nascimento')}}</span>
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
-                            <label>Curso</label>
+                            <label>Curso <span class="text-danger">*</span></label>
                             {{Form::select('curso', [], null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
                             @if($errors->has('curso'))
                             <span class="text-danger">{{$errors->first('curso')}}</span>
@@ -69,7 +69,7 @@
 
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
-                            <label>Turno</label>
+                            <label>Turno <span class="text-danger">*</span></label>
                             {{Form::select('turno', [], null, ['class'=>"form-control", 'placeholder'=>"Turno"])}}
                             @if($errors->has('turno'))
                             <span class="text-danger">{{$errors->first('turno')}}</span>
@@ -79,7 +79,7 @@
 
                        <div class="col-md-4">
                         <div class="form-group form-group-default">
-                            <label>Ano Lectivo</label>
+                            <label>Ano Lectivo <span class="text-danger">*</span></label>
                             {{Form::select('ano_lectivo', [], null, ['class'=>"form-control", 'placeholder'=>"Ano Lectivo"])}}
                             @if($errors->has('ano_lectivo'))
                             <span class="text-danger">{{$errors->first('ano_lectivo')}}</span>
