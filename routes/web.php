@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "HomeController@pagina_pricipal")->name('home');
 Route::get('/login', "UserController@login")->name('login');
 Route::post('/logar', "UserController@logar")->name('logar');
+Route::get('/logout', "UserController@logout")->name('logout');
 
 
 /*admin*/
 
-Route::group(['prefix'=>"admin",], function(){
+Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
     Route::get('/', "HomeController@index")->name('admin');
 
     Route::resource('/estudante', "EstudanteController");
