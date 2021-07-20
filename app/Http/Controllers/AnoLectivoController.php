@@ -33,7 +33,15 @@ class AnoLectivoController extends Controller
      */
     public function create()
     {
-        //
+        
+        $data = [
+            'title' => "Ano Lectivo",
+            'menu' => "Ano Lectivo",
+            'submenu' => "Novo",
+            'type' => "configuracoes",
+            'config' => null,
+        ];
+        return view('admin.ano_lectivo.list', $data);
     }
 
     /**
