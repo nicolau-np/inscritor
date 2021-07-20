@@ -24,18 +24,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($getEstudantes as $estudante)
+
                     <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$estudante->pessoa->nome}}</td>
+                    <td>{{$estudante->genero}}</td>
+                        <td>{{$estudante->data_nascimento}}</td>
+                        <td>{{$estudante->curso->curso}}</td>
+                        <td>{{$estudante->turno->turno}}</td>
+                        <td>
+
+                        </td>
                     </tr>
 
+                    @endforeach
                 </tbody>
             </table>
+
+            <div class="paginate">
+                {{$getEstudantes->links()}}
+            </div>
             </div>
 
         </div>

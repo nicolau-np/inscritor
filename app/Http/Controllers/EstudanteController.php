@@ -19,12 +19,14 @@ class EstudanteController extends Controller
      */
     public function index()
     {
+        $estudantes = Estudante::paginate(6);
         $data = [
             'title' => "Estudantes",
             'menu' => "Estudante",
             'submenu' => "Listar",
             'type' => "estudante",
             'config' => null,
+            'getEstudantes'=>$estudantes,
         ];
         return view('admin.estudante.list', $data);
     }
