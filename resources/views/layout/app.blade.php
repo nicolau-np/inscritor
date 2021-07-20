@@ -264,8 +264,8 @@
 										<div class="user-box">
 											<div class="avatar-lg"><img src="{{asset('assets/neutro/img/no-photo-icon-22.png')}}" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4>Hizrian</h4>
-												<p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
+                                            <h4>{{Auth::user()->pessoa->nome}}</h4>
+                                            <p class="text-muted">{{Auth::user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
 											</div>
 										</div>
 									</li>
@@ -299,8 +299,8 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									{{Auth::user()->pessoa->nome}}
+                                <span class="user-level">{{Auth::user()->nivel_acesso}}</span>
 									<span class="caret"></span>
 								</span>
 							</a>
