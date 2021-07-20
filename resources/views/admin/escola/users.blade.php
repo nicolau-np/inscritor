@@ -111,6 +111,32 @@
                 {{Form::close()}}
             </div>
 
+            <div class="table">
+                <table class="table table-bordered table-head-bg-info table-bordered-bd-info mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nível de Acesso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($getUsers as $users)
+
+                    <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$users->pessoa->nome}}</td>
+                    <td>{{$users->pessoa->genero}}</td>
+                    <td>{{$users->email}}</td>
+                    <td>{{$users->nivel_acesso}}</td>
+                    </tr>
+
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

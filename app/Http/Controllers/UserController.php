@@ -50,13 +50,16 @@ class UserController extends Controller
             return back()->with(['error'=>"Não encontrou"]);
         }
 
+         $users = User::where(['id_instituicao'=>$id_instituicao])->get();
+
         $data = [
             'title' => "Escolas",
             'menu' => "Escolas",
             'submenu' => "Usuários",
             'type' => "configuracoes",
             'config' => null,
-            'getIDEscola'=>$escola->id
+            'getIDEscola'=>$escola->id,
+            'getUsers'=>$users,
 
         ];
         return view('admin.escola.users', $data);
