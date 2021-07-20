@@ -54,6 +54,26 @@
                         @endif
                     </div>
                    </div>
+
+                   <div class="col-md-5">
+                    <div class="form-group form-group-default">
+                        <label>Bilhete</label>
+                        {{Form::text('bilhete', null, ['class'=>"form-control", 'placeholder'=>"Nº do Bilhete"])}}
+                        @if($errors->has('bilhete'))
+                            <span class="text-danger">{{$errors->first('bilhete')}}</span>
+                        @endif
+                    </div>
+                   </div>
+
+                   <div class="col-md-4">
+                    <div class="form-group form-group-default">
+                        <label>Telefone</label>
+                        {{Form::text('telefone', null, ['class'=>"form-control", 'placeholder'=>"Nº de Telefone"])}}
+                        @if($errors->has('telefone'))
+                            <span class="text-danger">{{$errors->first('telefone')}}</span>
+                        @endif
+                    </div>
+                   </div>
                 </div>
 
                 <div class="row">
