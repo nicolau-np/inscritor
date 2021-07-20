@@ -43,8 +43,8 @@ class EscolaController extends Controller
             'submenu' => "Novo",
             'type' => "configuracoes",
             'config' => null,
-            'getTipoInstituicao'=>$tipo_instituicaos,
-            'getNivelInstituicao'=>$nivel_instituicaos,
+            'getTipoInstituicao' => $tipo_instituicaos,
+            'getNivelInstituicao' => $nivel_instituicaos,
         ];
         return view('admin.escola.create', $data);
     }
@@ -57,7 +57,25 @@ class EscolaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'=>['required', 'string', 'min:10', 'max:255'],
+            'bairro'=> ['required', 'string', 'min:10', 'max:255'],
+            'estado' => ['required', 'string', 'min:1', 'max:3'],
+            'tipo'=> ['required', 'integer', 'min:1'],
+            'nivel' => ['required', 'integer', 'min:1'],
+        ]);
+
+        $data = [
+            'id_tipo_instituicao'=>$request->tipo,
+            'id_nivel_instituicao'=>$request->nivel,
+            'nome'=>$request->nome,
+            'bairro'=> $request->bairro,
+            'estado'=> $request->estado,
+        ];
+
+        if(Instituicao::create($data)){
+            return back()->with(['success' => "Feito com sucesso"]);
+        }
     }
 
     /**
