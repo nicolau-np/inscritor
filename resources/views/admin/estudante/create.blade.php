@@ -11,22 +11,28 @@
         <div class="card-body">
 
             <div class="form">
-                <label class="mb-3"><b>Form Group Default</b></label>
-<div class="form-group form-group-default">
-	<label>Input</label>
-	<input id="Name" type="text" class="form-control" placeholder="Fill Name">
-</div>
+               <div class="row">
+                   <div class="col-md-5">
+                       <div class="form-group form-group-default">
+                       <label>Nome</label>
+                       {{Form::text('nome', null, ['class'=>"form-control", 'placeholder'=>"Nome completo"])}}
+                       </div>
+                   </div>
 
-<div class="form-group form-group-default">
-	<label>Select</label>
-	<select class="form-control" id="formGroupDefaultSelect">
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-		<option>5</option>
-	</select>
-</div>
+                   <div class="col-md-3">
+                    <div class="form-group form-group-default">
+                        <label>Gênero</label>
+                        {{Form::select('genero', [
+                            'M'=>"Masculino",
+                            'F'=>"Femenino",
+                        ], ['class'=>"form-control", 'placeholder'=>"Gênero"])}}
+
+                    </div>
+                   </div>
+               </div>
+
+
+
 
 <label class="mt-3 mb-3"><b>Form Floating Label</b></label>
 <div class="form-group form-floating-label">
