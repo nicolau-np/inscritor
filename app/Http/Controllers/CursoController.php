@@ -96,7 +96,7 @@ class CursoController extends Controller
             'submenu' => "Editar",
             'type' => "configuracoes",
             'config' => null,
-            'getCurso'=> $curso->id,
+            'getCurso'=> $curso,
         ];
         return view('admin.curso.edit', $data);
     }
