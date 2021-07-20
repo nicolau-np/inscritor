@@ -19,7 +19,8 @@ class EstudanteController extends Controller
      */
     public function index()
     {
-        $estudantes = Estudante::paginate(6);
+        $id_instituicao = Auth::user()->id_instituicao;
+        $estudantes = Estudante::where(['id_instituicao'=>$id_instituicao])->paginate(6);
         $data = [
             'title' => "Estudantes",
             'menu' => "Estudante",
