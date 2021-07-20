@@ -22,7 +22,7 @@
 
                 {{Form::open(['method'=>"post", 'url' =>"/admin/cursos"])}}
                <div class="row">
-                   <div class="col-md-4">
+                   <div class="col-md-6">
                        <div class="form-group form-group-default">
                        <label>Curso<span class="text-danger">*</span></label>
                        {{Form::text('curso', null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
