@@ -19,7 +19,7 @@ class AnoLectivoController extends Controller
             'title' => "Ano Lectivo",
             'menu' => "Ano Lectivo",
             'submenu' => "Listar",
-            'type' => "ano_lectivo",
+            'type' => "configuracoes",
             'config' => null,
             'getAnos_lectivos'=>$anos_lectivos,
         ];
