@@ -33,7 +33,14 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => "Cursos",
+            'menu' => "Cursos",
+            'submenu' => "Novo",
+            'type' => "configuracoes",
+            'config' => null,
+        ];
+        return view('admin.curso.create', $data);
     }
 
     /**

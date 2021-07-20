@@ -25,7 +25,7 @@
                    <div class="col-md-4">
                        <div class="form-group form-group-default">
                        <label>Curso<span class="text-danger">*</span></label>
-                       {{Form::number('curso', null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
+                       {{Form::text('curso', null, ['class'=>"form-control", 'placeholder'=>"Curso"])}}
                        @if($errors->has('curso'))
                         <span class="text-danger">{{$errors->first('curso')}}</span>
                         @endif
