@@ -52,7 +52,20 @@ class AnoLectivoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ano_inicio'=>['required', 'integer', 'min:1'],
+            'ano_fim'=>['required', 'integer', 'min:1'],
+            'estado'=> ['required', 'string', 'min:1', 'max:3'],
+        ]);
+            $ano_lectivo = $request->ano_inicio .' - '.$request->ano_fim;
+        $data = [
+            'ano_lectivo'=>$ano_lectivo,
+            'estado'=>$request->estado,
+        ];
+
+        if(AnoLectivo::create($data)){
+            return back()->with(['success'=>"Feito com sucesso"]);
+        }
     }
 
     /**
