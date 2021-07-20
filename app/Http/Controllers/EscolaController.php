@@ -33,7 +33,15 @@ class EscolaController extends Controller
      */
     public function create()
     {
-        //
+
+        $data = [
+            'title' => "Escolas",
+            'menu' => "Escolas",
+            'submenu' => "Listar",
+            'type' => "configuracoes",
+            'config' => null,
+        ];
+        return view('admin.escola.create', $data);
     }
 
     /**
