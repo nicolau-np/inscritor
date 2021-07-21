@@ -350,7 +350,7 @@
 							</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item @if($type=="usuarios") active @endif">
 							<a href="/admin/usuarios">
 								<i class="fas fa-key"></i>
 								<p>Usuários</p>
