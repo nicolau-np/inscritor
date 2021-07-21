@@ -27,10 +27,10 @@ class CondicaoController extends Controller
     public function create($id_instituicao)
     {
         $instituicao = Instituicao::find($id_instituicao);
-        if(!$instituicao){
-            return back()->with(['error'=>"Novo encontrou"]);
+        if (!$instituicao) {
+            return back()->with(['error' => "Novo encontrou"]);
         }
-        $condicao = Condicao::where(['id_instituicao'=>$id_instituicao])->get();
+        $condicao = Condicao::where(['id_instituicao' => $id_instituicao])->get();
         $anos_lectivos = AnoLectivo::pluck('ano_lectivo', 'id');
         $data = [
             'title' => "Condições",
@@ -38,9 +38,9 @@ class CondicaoController extends Controller
             'submenu' => "Novo",
             'type' => "configuracoes",
             'config' => null,
-            'getCondicao'=>$condicao,
-            'getIDEscola'=>$id_instituicao,
-            'getAnosLectivos'=>$anos_lectivos,
+            'getCondicao' => $condicao,
+            'getIDEscola' => $id_instituicao,
+            'getAnosLectivos' => $anos_lectivos,
         ];
         return view('admin.escola.condicao', $data);
     }
@@ -88,10 +88,27 @@ class CondicaoController extends Controller
     public function update(Request $request, $id_instituicao)
     {
         $instituicao = Instituicao::find($id_instituicao);
-        if(!$instituicao){
-            return back()->with(['error'=>"Nao encontrou"]);
+        if (!$instituicao) {
+            return back()->with(['error' => "Nao encontrou"]);
         }
-        
+
+        $request->validate([
+            'ano_lectivo' => ['required', 'integer', 'min:1'],
+            'ano_inicio' => ['required', 'integer', 'min:1'],
+            'ano_fim' => ['required', 'integer', 'min:1'],
+        ]);
+
+        $data = [
+            'id_instituicao'=>$id_instituicao,
+            'id_ano_lectivo'=>$request->ano_lectivo,
+            'ano_inicio'=>$request->ano_inicio,
+            'ano_fim'=>$request->ano_fim,
+            'estado'=>"on",
+        ];
+
+        if(Condicao::create($data)){
+            return back()->with(['success' => "Feito com sucesso"]);
+        }
     }
 
     /**
