@@ -37,7 +37,10 @@
                         <a href="/admin/escolas/{{$escolas->id}}/edit" class="btn btn-primary btn-sm">Editar</a>
                         &nbsp;
                         <a href="/admin/escolas/users/{{$escolas->id}}" class="btn btn-warning btn-sm">Admin</a>
+                        &nbsp;
+                        <a href="/admin/escolas/condicoes/{{$escolas->id}}" class="btn btn-success btn-sm">Condições</a>
                         </td>
+
                     </tr>
 
                     @endforeach
