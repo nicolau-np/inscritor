@@ -45,6 +45,8 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
         Route::post('/store', "UserController@storeE");
     });
 
+    Route::get('/sobre', "HomeController@sobre");
+
 });
 
 /*admin*/

@@ -427,7 +427,7 @@
 							<div class="collapse" id="maps">
 								<ul class="nav nav-collapse">
 									<li class="@if($menu=='Sistema') active @endif">
-										<a href="/sobre">
+										<a href="/admin/sobre">
 											<span class="sub-item">Sistema</span>
 										</a>
 									</li>
