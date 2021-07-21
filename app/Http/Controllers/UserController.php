@@ -115,10 +115,22 @@ class UserController extends Controller
     }
 
     public function index(){
-
+        $id_instituicao = Auth::user()->id_instituicao;
+        $instituicao = Instituicao::find($id_instituicao);
+        if(!$instituicao){
+            return back()->with(['error'=>"Não encontrou"]);
+        }
+        $data = [
+            'title'=>"Usuários",
+            'menu'=>"Usuários",
+            'submenu'=>"Listar",
+            'type'=>"usuarios",
+            'config'=>null,
+        ];
+        return view('admin.user.list', $data);
     }
 
     public function create(){
-        
+
     }
 }
