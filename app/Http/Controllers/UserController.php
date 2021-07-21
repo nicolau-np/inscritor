@@ -148,4 +148,8 @@ class UserController extends Controller
         ];
         return view('admin.user.create', $data);
     }
+
+    public function storeE(Request $request){
+
+    }
 }

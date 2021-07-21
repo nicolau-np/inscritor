@@ -42,6 +42,7 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
     Route::group(['prefix'=>"usuarios", 'middleware'=>"admin"], function(){
         Route::get('/', "UserController@index");
         Route::get('/create', "UserController@create");
+        Route::post('/store', "UserController@storeE");
     });
 
 });
