@@ -419,12 +419,12 @@
 							</div>
 						</li>
 						<li class="nav-item @if($type=='sobre') active submenu @endif">
-							<a data-toggle="collapse @if($type=='sobre') show @endif" href="#maps">
+							<a data-toggle="collapse" href="#maps">
 								<i class="fas fa-map-marker-alt"></i>
 								<p>Sobre</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="maps">
+							<div class="collapse @if($type=='sobre') show @endif" id="maps">
 								<ul class="nav nav-collapse">
 									<li class="@if($menu=='Sistema') active @endif">
 										<a href="/admin/sobre">
