@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AnoLectivo;
 use App\Condicao;
 use App\Instituicao;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class CondicaoController extends Controller
             return back()->with(['error'=>"Novo encontrou"]);
         }
         $condicao = Condicao::where(['id_instituicao'=>$id_instituicao])->get();
+        $anos_lectivos = AnoLectivo::pluck('ano_lectivo', 'id');
         $data = [
             'title' => "Condições",
             'menu' => "Escolas",
@@ -37,6 +39,8 @@ class CondicaoController extends Controller
             'type' => "configuracoes",
             'config' => null,
             'getCondicao'=>$condicao,
+            'getIDEscola'=>$id_instituicao,
+            'getAnosLectivos'=>$anos_lectivos,
         ];
         return view('admin.escola.condicao', $data);
     }
