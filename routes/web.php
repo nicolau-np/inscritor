@@ -37,6 +37,8 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
     Route::group(['prefix' =>"escolas", 'middleware'=>"master"], function(){
         Route::get('/users/{id_instituicao}', "UserController@users");
         Route::put('/users/store/{id_instituicao}', "UserController@store");
+
+        Route::get('/condicoes/{id_instituicao}', "CondicaoController@create");
     });
 
     Route::group(['prefix'=>"usuarios", 'middleware'=>"admin"], function(){
@@ -44,6 +46,7 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
         Route::get('/create', "UserController@create");
         Route::post('/store', "UserController@storeE");
     });
+
 
     Route::get('/sobre', "HomeController@sobre");
 
