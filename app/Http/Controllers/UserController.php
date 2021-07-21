@@ -120,12 +120,14 @@ class UserController extends Controller
         if(!$instituicao){
             return back()->with(['error'=>"Não encontrou"]);
         }
+        $usuarios = User::where(['id_instituicao'=>$id_instituicao])->paginate(6);
         $data = [
             'title'=>"Usuários",
             'menu'=>"Usuários",
             'submenu'=>"Listar",
             'type'=>"usuarios",
             'config'=>null,
+            'getUsuarios'=>$usuarios,
         ];
         return view('admin.user.list', $data);
     }
