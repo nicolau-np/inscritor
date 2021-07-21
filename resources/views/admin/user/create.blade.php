@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"put", 'url' =>"/admin/escolas/users/store/{$getIDEscola}"])}}
+                {{Form::open(['method'=>"post", 'url' =>"/admin/usuarios/store"])}}
                 <div class="row">
                     <div class="col-md-5">
                         <div class="form-group form-group-default">
@@ -87,18 +87,7 @@
                        </div>
                    </div>
 
-                   <div class="col-md-3">
-                    <div class="form-group form-group-default">
-                        <label>Nível de Acesso <span class="text-danger">*</span></label>
-                        {{Form::select('nivel', [
-                            'user'=>"user",
-                            'admin'=>"admin"
-                        ], null, ['class'=>"form-control", 'placeholder'=>"Nível de Acessoí"])}}
-                        @if($errors->has('nivel'))
-                        <span class="text-danger">{{$errors->first('nivel')}}</span>
-                        @endif
-                    </div>
-                   </div>
+
                 </div>
 
 

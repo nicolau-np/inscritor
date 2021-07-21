@@ -145,8 +145,7 @@ class UserController extends Controller
             'submenu'=>"Novo",
             'type'=>"usuarios",
             'config'=>null,
-            'getIDEscola'=>$id_instituicao,
         ];
-        return view('admin.user.list', $data);
+        return view('admin.user.create', $data);
     }
 }
