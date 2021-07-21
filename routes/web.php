@@ -39,6 +39,7 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
         Route::put('/users/store/{id_instituicao}', "UserController@store");
 
         Route::get('/condicoes/{id_instituicao}', "CondicaoController@create");
+        Route::put('/condicoes/store/{id_instituicao}', "CondicaoController@update");
     });
 
     Route::group(['prefix'=>"usuarios", 'middleware'=>"admin"], function(){
