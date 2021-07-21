@@ -351,7 +351,7 @@
                         </li>
 
                         <li class="nav-item">
-							<a href="/admin/estudante">
+							<a href="/admin/usuarios">
 								<i class="fas fa-key"></i>
 								<p>Usuários</p>
 							</a>
