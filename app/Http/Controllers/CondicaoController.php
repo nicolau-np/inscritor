@@ -36,7 +36,7 @@ class CondicaoController extends Controller
             'submenu' => "Novo",
             'type' => "configuracoes",
             'config' => null,
-            'get'
+            'getCondicao'=>$condicao,
         ];
         return view('admin.escola.condicao', $data);
     }
