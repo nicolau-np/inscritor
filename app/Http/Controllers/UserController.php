@@ -150,6 +150,52 @@ class UserController extends Controller
     }
 
     public function storeE(Request $request){
+        $id_instituicao = Auth::user()->id_instituicao;
+        $escola = Instituicao::find($id_instituicao);
+        if(!$escola){
+            return back()->with(['error'=>"Não encontrou"]);
+        }
 
+        $request->validate([
+            'nome' => ['required', 'string', 'min:10', 'max:255'],
+            'genero' => ['required', 'string', 'min:1', 'max:2'],
+            'data_nascimento' => ['required', 'date',],
+
+            'email' => ['required', 'email', 'unique:usuarios,email'],
+            'nivel' => ['required', 'string', 'min:3'],
+
+        ]);
+
+        if ($request->bilhete != "") {
+            $request->validate([
+                'bilhete' => ['required', 'string', 'min:9', 'max:25', 'unique:pessoas,bi'],
+            ]);
+        }
+
+        $palavra_passe = Hash::make("inscritor2021");
+        $data['pessoa'] = [
+            'nome' => $request->nome,
+            'bi' => $request->bilhete,
+            'telefone' => $request->telefone,
+            'genero' => $request->genero,
+            'data_nascimento' => $request->data_nascimento,
+        ];
+
+        $data['user']=[
+            'id_pessoa'=>null,
+            'id_instituicao'=>$id_instituicao,
+            'email'=>$request->email,
+            'password'=>$palavra_passe,
+            'nivel_acesso'=>$request->nivel,
+            'estado'=>"on",
+        ];
+
+        $pessoa = Pessoa::create($data['pessoa']);
+        if($pessoa){
+            $data['user']['id_pessoa']=$pessoa->id;
+            if(User::create($data['user'])){
+                return back()->with(['success' => "Feito com sucesso"]);
+            }
+        }
     }
 }
