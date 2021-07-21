@@ -162,8 +162,6 @@ class UserController extends Controller
             'data_nascimento' => ['required', 'date',],
 
             'email' => ['required', 'email', 'unique:usuarios,email'],
-            'nivel' => ['required', 'string', 'min:3'],
-
         ]);
 
         if ($request->bilhete != "") {
@@ -186,7 +184,7 @@ class UserController extends Controller
             'id_instituicao'=>$id_instituicao,
             'email'=>$request->email,
             'password'=>$palavra_passe,
-            'nivel_acesso'=>$request->nivel,
+            'nivel_acesso'=>"user",
             'estado'=>"on",
         ];
 
