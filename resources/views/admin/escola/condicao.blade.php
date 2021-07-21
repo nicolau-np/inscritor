@@ -83,7 +83,7 @@
                     <td>{{$condicao->ano_lectivo->ano_lectivo}}</td>
                     <td>{{$condicao->ano_inicio}}</td>
                     <td>{{$condicao->ano_fim}}</td>
-                    <td>{{$users->estado}}</td>
+                    <td>{{$condicao->estado}}</td>
                     <td>
 
                     </td>
