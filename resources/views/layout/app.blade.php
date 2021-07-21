@@ -418,16 +418,16 @@
 								</ul>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#maps">
+						<li class="nav-item @if($type=='sobre') active submenu @endif">
+							<a data-toggle="collapse @if($type=='sobre') show @endif" href="#maps">
 								<i class="fas fa-map-marker-alt"></i>
 								<p>Sobre</p>
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="maps">
 								<ul class="nav nav-collapse">
-									<li>
-										<a href="maps/jqvmap.html">
+									<li class="@if($menu=='Sistema') active @endif">
+										<a href="/sobre">
 											<span class="sub-item">Sistema</span>
 										</a>
 									</li>
