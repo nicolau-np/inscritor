@@ -12,25 +12,24 @@
 
             <div class="table">
                 <table class="table table-bordered table-head-bg-info table-bordered-bd-info mt-4">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Operações</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Gênero</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Nível de Acesso</th>
+                        </tr>
+                    </thead>
                 <tbody>
-                    @foreach ($getCursos as $curso)
+                    @foreach ($getUsuarios as $users)
 
                     <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$curso->curso}}</td>
-                    <td>{{$curso->estado}}</td>
-
-                        <td>
-                            <a href="/admin/cursos/{{$curso->id}}/edit" class="btn btn-primary btn-sm">Editar</a>
-                        </td>
+                    <td>{{$users->pessoa->nome}}</td>
+                    <td>{{$users->pessoa->genero}}</td>
+                    <td>{{$users->email}}</td>
+                    <td>{{$users->nivel_acesso}}</td>
                     </tr>
 
                     @endforeach
@@ -38,7 +37,7 @@
             </table>
 
             <div class="paginate">
-                {{$getCursos->links()}}
+                {{$getUsuarios->links()}}
             </div>
             </div>
 
