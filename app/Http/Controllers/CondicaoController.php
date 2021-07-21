@@ -85,9 +85,13 @@ class CondicaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_instituicao)
     {
-        //
+        $instituicao = Instituicao::find($id_instituicao);
+        if(!$instituicao){
+            return back()->with(['error'=>"Nao encontrou"]);
+        }
+        
     }
 
     /**
