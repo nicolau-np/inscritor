@@ -36,6 +36,6 @@ class HomeController extends Controller
             'type'=>"sobre",
             'config'=>null,
         ];
-        return view('sobre', $data);
+        return view('admin.sobre', $data);
     }
 }
