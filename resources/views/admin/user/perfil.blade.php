@@ -25,7 +25,7 @@
                     <div class="col-md-5">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe <span class="text-danger">*</span></label>
-                        {{Form::password('passe_antiga', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Actual"])}}
+                        {{Form::text('passe_antiga', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Actual"])}}
                         @if($errors->has('passe_antiga'))
                          <span class="text-danger">{{$errors->first('passe_antiga')}}</span>
                          @endif
@@ -38,7 +38,7 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe Nova <span class="text-danger">*</span></label>
-                        {{Form::password('passe_nova', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Nova"])}}
+                        {{Form::text('passe_nova', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Nova"])}}
                         @if($errors->has('passe_nova'))
                          <span class="text-danger">{{$errors->first('passe_nova')}}</span>
                          @endif
@@ -50,7 +50,7 @@
                     <div class="col-md-4">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe Confimar <span class="text-danger">*</span></label>
-                        {{Form::password('passe_confirm', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Confirmar"])}}
+                        {{Form::text('passe_confirm', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Confirmar"])}}
                         @if($errors->has('passe_confirm'))
                          <span class="text-danger">{{$errors->first('passe_confirm')}}</span>
                          @endif
