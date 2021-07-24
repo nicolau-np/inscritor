@@ -360,15 +360,15 @@
 							</a>
                         </li>
 
-						<li class="nav-item">
+						<li class="nav-item @if($type=='estatisticas') active submenu @endif">
 							<a data-toggle="collapse" href="#sidebarLayouts">
 								<i class="fas fa-th-list"></i>
 								<p>Estatísticas</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="sidebarLayouts">
+							<div class="collapse @if($type=='estatisticas') show @endif" id="sidebarLayouts">
 								<ul class="nav nav-collapse">
-									<li>
+									<li class="@if($menu=='Listas') @endif">
 										<a href="/admin/estatisticas/lista">
 											<span class="sub-item">Listas</span>
 										</a>

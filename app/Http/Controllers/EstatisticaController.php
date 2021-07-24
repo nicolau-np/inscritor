@@ -9,7 +9,7 @@ class EstatisticaController extends Controller
     public function index(){
         $data = [
             'title' => "Estatísticas",
-            'menu' => "Estatísticas",
+            'menu' => "Listas",
             'submenu' => "Listar",
             'type' => "estatisticas",
             'config' => null,
