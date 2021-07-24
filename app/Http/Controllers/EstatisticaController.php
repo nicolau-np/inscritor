@@ -48,6 +48,6 @@ class EstatisticaController extends Controller
                 'nome'=>"euro"
             ],
         ];
-        return back()->with(['getLista'=>$lista, 'success'=>"pesquisa Feita"]);
+        return back()->with(['getLista'=>$lista, 'info'=>"Buscando estudantes"]);
     }
 }

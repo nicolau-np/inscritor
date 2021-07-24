@@ -13,14 +13,18 @@
             <div class="form">
 
                 @if (session('error'))
-                    <div class="alert bg-danger" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em> {{__(session('error'))}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+                    <div class="alert bg-danger" role="alert"><em class="fa fa-lg fa-danger">&nbsp;</em> {{__(session('error'))}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
                 @if (session('success'))
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"get", 'url' =>"/admin/estatisticas/list"])}}
+                @if (session('info'))
+                    <div class="alert bg-info" role="alert"><em class="fa fa-lg fa-info">&nbsp;</em> {{session('info')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
+                @endif
+
+                {{Form::open(['method'=>"post", 'url' =>"/admin/estatisticas/getList"])}}
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group form-group-default">
@@ -78,7 +82,9 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        hello
+                        @if(session('getLista'))
+                        <h1>Encontrou</h1>
+                        @endif
                     </div>
                 </div>
             </div>
