@@ -223,4 +223,13 @@ class UserController extends Controller
         ];
         return view('admin.user.perfil', $data);
     }
+
+    public function update(){
+        $id_user = Auth::user()->id;
+
+        $user = User::find($id_user);
+        if (!$user) {
+            return back()->with(['error' => "Nao encontrou"]);
+        }
+    }
 }

@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"post", 'url' =>"/admin/perfil/update"])}}
+                {{Form::open(['method'=>"post", 'url' =>"/admin/profile/update"])}}
                 <div class="row">
                     <div class="col-md-5">
                         <div class="form-group form-group-default">
@@ -35,7 +35,7 @@
                  </div>
 
                  <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe Nova <span class="text-danger">*</span></label>
                         {{Form::text('passe_nova', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Nova"])}}
@@ -47,7 +47,7 @@
                  </div>
 
                  <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe Confimar <span class="text-danger">*</span></label>
                         {{Form::text('passe_confirm', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Confirmar"])}}
