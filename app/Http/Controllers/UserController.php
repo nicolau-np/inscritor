@@ -219,17 +219,39 @@ class UserController extends Controller
             'submenu' => "Perfil",
             'type' => "usuarios",
             'config' => null,
-            'getUsuario'=>$user,
+            'getUsuario' => $user,
         ];
         return view('admin.user.perfil', $data);
     }
 
-    public function update(){
+    public function update(Request $request)
+    {
         $id_user = Auth::user()->id;
 
         $user = User::find($id_user);
         if (!$user) {
             return back()->with(['error' => "Nao encontrou"]);
         }
+
+        $request->validate([
+            'passe_antiga' => ['required', 'string', 'min:6', 'max:255'],
+            'passe_nova' => ['required', 'string', 'min:6', 'max:255'],
+            'passe_confirm' => ['required', 'string', 'min:6', 'max:255'],
+        ]);
+
+        $passe_actual = Hash::make($request->passe_antiga);
+
+        $palavra_passe = Hash::make($request->passe_nova);
+
+        if ($request->passe_nova != $request->passe_confirm) {
+            return back()->with(['error' => "Confirmação de palavra-passe incorrecta"]);
+        }
+
+        if ($passe_actual != Auth::user()->password) {
+            return back()->with(['error'=>"Palavra-Passe actual incorrecta"]);
+        }
+        $data = [
+            'password' => $palavra_passe,
+        ];
     }
 }
