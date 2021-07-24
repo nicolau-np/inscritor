@@ -343,19 +343,22 @@
 							<h4 class="text-section">Institucional</h4>
                         </li>
 
+                        @if(Auth::user()->nivel_acesso == "user")
                         <li class="nav-item @if($type=="estudante") active @endif">
 							<a href="/admin/estudante">
 								<i class="fas fa-user"></i>
 								<p>Estudante</p>
 							</a>
                         </li>
+                        @endif
 
+                        @if(Auth::user()->nivel_acesso=="admin")
                         <li class="nav-item @if($type=="usuarios") active @endif">
 							<a href="/admin/usuarios">
 								<i class="fas fa-key"></i>
 								<p>Usuários</p>
 							</a>
-						</li>
+                        </li>
 
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#sidebarLayouts">
@@ -378,6 +381,10 @@
 								</ul>
 							</div>
                         </li>
+                        @endif
+
+
+                        @if(Auth::user()->nivel_acesso=="master")
                         <li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
@@ -417,7 +424,10 @@
 									</li>
 								</ul>
 							</div>
-						</li>
+                        </li>
+
+                        @endif
+
 						<li class="nav-item @if($type=='sobre') active submenu @endif">
 							<a data-toggle="collapse" href="#maps">
 								<i class="fas fa-map-marker-alt"></i>
