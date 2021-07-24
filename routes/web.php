@@ -48,6 +48,10 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
         Route::post('/store', "UserController@storeE");
     });
 
+    Route::group(['prefix' =>"profile"], function(){
+        Route::get('/', "UserController@profile");
+    });
+
 
     Route::get('/sobre', "HomeController@sobre");
 
