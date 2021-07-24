@@ -247,11 +247,15 @@ class UserController extends Controller
             return back()->with(['error' => "Confirmação de palavra-passe incorrecta"]);
         }
 
-        if ($passe_actual != Auth::user()->password) {
+        /*if ($passe_actual != Auth::user()->password) {
             return back()->with(['error'=>"Palavra-Passe actual incorrecta"]);
-        }
+        }*/
         $data = [
             'password' => $palavra_passe,
         ];
+
+       if(User::find($id_user)->update($data)){
+            return back()->with(['success' => "Feito com sucesso"]);
+       }
     }
 }
