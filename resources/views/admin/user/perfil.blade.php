@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"post", 'url' =>"/admin/usuarios/store"])}}
+                {{Form::open(['method'=>"post", 'url' =>"/admin/perfil/update"])}}
                 <div class="row">
                     <div class="col-md-5">
                         <div class="form-group form-group-default">
@@ -32,7 +32,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-5">
+                 </div>
+
+                 <div class="row">
+                    <div class="col-md-4">
                         <div class="form-group form-group-default">
                         <label>Palavra-Passe Nova <span class="text-danger">*</span></label>
                         {{Form::password('passe_nova', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Nova"])}}
@@ -41,11 +44,19 @@
                          @endif
                         </div>
                     </div>
-
-
                  </div>
 
-
+                 <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group form-group-default">
+                        <label>Palavra-Passe Confimar <span class="text-danger">*</span></label>
+                        {{Form::password('passe_confirm', null, ['class'=>"form-control", 'placeholder'=>"Palavra-Passe Confirmar"])}}
+                        @if($errors->has('passe_confirm'))
+                         <span class="text-danger">{{$errors->first('passe_confirm')}}</span>
+                         @endif
+                        </div>
+                    </div>
+                 </div>
 
                 <div class="row">
                     <div class="col-md-12">
