@@ -265,13 +265,13 @@
 											<div class="avatar-lg"><img src="{{asset('assets/neutro/img/no-photo-icon-22.png')}}" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
                                             <h4>{{Auth::user()->pessoa->nome}}</h4>
-                                            <p class="text-muted">{{Auth::user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
+                                            <p class="text-muted">{{Auth::user()->email}}</p><a href="/admin/profile" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
 											</div>
 										</div>
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Meu Perfil</a>
+										<a class="dropdown-item" href="/admin/profile">Meu Perfil</a>
 										<a class="dropdown-item" href="#">Meus Balanços</a>
 										<a class="dropdown-item" href="#">Entrada</a>
 										<div class="dropdown-divider"></div>
@@ -309,7 +309,7 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="#profile">
+										<a href="/admin/profile">
 											<span class="link-collapse">Meu Perfil</span>
 										</a>
 									</li>
