@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         $data = [
-            'title'=>"Iniciar Sessão",
-            'menu'=>"Login",
-            'submenu'=>null,
-            'type'=>"login",
-            'config'=>null,
+            'title' => "Iniciar Sessão",
+            'menu' => "Login",
+            'submenu' => null,
+            'type' => "login",
+            'config' => null,
         ];
         return view('admin.user.login', $data);
     }
@@ -39,18 +40,20 @@ class UserController extends Controller
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('login');
     }
 
-    public function users($id_instituicao){
+    public function users($id_instituicao)
+    {
         $escola = Instituicao::find($id_instituicao);
-        if(!$escola){
-            return back()->with(['error'=>"Não encontrou"]);
+        if (!$escola) {
+            return back()->with(['error' => "Não encontrou"]);
         }
 
-         $users = User::where(['id_instituicao'=>$id_instituicao])->get();
+        $users = User::where(['id_instituicao' => $id_instituicao])->get();
 
         $data = [
             'title' => "Escolas",
@@ -58,17 +61,18 @@ class UserController extends Controller
             'submenu' => "Usuários",
             'type' => "configuracoes",
             'config' => null,
-            'getIDEscola'=>$escola->id,
-            'getUsers'=>$users,
+            'getIDEscola' => $escola->id,
+            'getUsers' => $users,
 
         ];
         return view('admin.escola.users', $data);
     }
 
-    public function store(Request $request, $id_instituicao){
+    public function store(Request $request, $id_instituicao)
+    {
         $escola = Instituicao::find($id_instituicao);
-        if(!$escola){
-            return back()->with(['error'=>"Não encontrou"]);
+        if (!$escola) {
+            return back()->with(['error' => "Não encontrou"]);
         }
 
         $request->validate([
@@ -96,64 +100,67 @@ class UserController extends Controller
             'data_nascimento' => $request->data_nascimento,
         ];
 
-        $data['user']=[
-            'id_pessoa'=>null,
-            'id_instituicao'=>$id_instituicao,
-            'email'=>$request->email,
-            'password'=>$palavra_passe,
-            'nivel_acesso'=>$request->nivel,
-            'estado'=>"on",
+        $data['user'] = [
+            'id_pessoa' => null,
+            'id_instituicao' => $id_instituicao,
+            'email' => $request->email,
+            'password' => $palavra_passe,
+            'nivel_acesso' => $request->nivel,
+            'estado' => "on",
         ];
 
         $pessoa = Pessoa::create($data['pessoa']);
-        if($pessoa){
-            $data['user']['id_pessoa']=$pessoa->id;
-            if(User::create($data['user'])){
+        if ($pessoa) {
+            $data['user']['id_pessoa'] = $pessoa->id;
+            if (User::create($data['user'])) {
                 return back()->with(['success' => "Feito com sucesso"]);
             }
         }
     }
 
-    public function index(){
+    public function index()
+    {
         $id_instituicao = Auth::user()->id_instituicao;
         $instituicao = Instituicao::find($id_instituicao);
-        if(!$instituicao){
-            return back()->with(['error'=>"Não encontrou"]);
+        if (!$instituicao) {
+            return back()->with(['error' => "Não encontrou"]);
         }
-        $usuarios = User::where(['id_instituicao'=>$id_instituicao])->paginate(6);
+        $usuarios = User::where(['id_instituicao' => $id_instituicao])->paginate(6);
         $data = [
-            'title'=>"Usuários",
-            'menu'=>"Usuários",
-            'submenu'=>"Listar",
-            'type'=>"usuarios",
-            'config'=>null,
-            'getUsuarios'=>$usuarios,
+            'title' => "Usuários",
+            'menu' => "Usuários",
+            'submenu' => "Listar",
+            'type' => "usuarios",
+            'config' => null,
+            'getUsuarios' => $usuarios,
         ];
         return view('admin.user.list', $data);
     }
 
-    public function create(){
+    public function create()
+    {
         $id_instituicao = Auth::user()->id_instituicao;
         $instituicao = Instituicao::find($id_instituicao);
-        if(!$instituicao){
-            return back()->with(['error'=>"Não encontrou"]);
+        if (!$instituicao) {
+            return back()->with(['error' => "Não encontrou"]);
         }
 
         $data = [
-            'title'=>"Usuários",
-            'menu'=>"Usuários",
-            'submenu'=>"Novo",
-            'type'=>"usuarios",
-            'config'=>null,
+            'title' => "Usuários",
+            'menu' => "Usuários",
+            'submenu' => "Novo",
+            'type' => "usuarios",
+            'config' => null,
         ];
         return view('admin.user.create', $data);
     }
 
-    public function storeE(Request $request){
+    public function storeE(Request $request)
+    {
         $id_instituicao = Auth::user()->id_instituicao;
         $escola = Instituicao::find($id_instituicao);
-        if(!$escola){
-            return back()->with(['error'=>"Não encontrou"]);
+        if (!$escola) {
+            return back()->with(['error' => "Não encontrou"]);
         }
 
         $request->validate([
@@ -179,25 +186,41 @@ class UserController extends Controller
             'data_nascimento' => $request->data_nascimento,
         ];
 
-        $data['user']=[
-            'id_pessoa'=>null,
-            'id_instituicao'=>$id_instituicao,
-            'email'=>$request->email,
-            'password'=>$palavra_passe,
-            'nivel_acesso'=>"user",
-            'estado'=>"on",
+        $data['user'] = [
+            'id_pessoa' => null,
+            'id_instituicao' => $id_instituicao,
+            'email' => $request->email,
+            'password' => $palavra_passe,
+            'nivel_acesso' => "user",
+            'estado' => "on",
         ];
 
         $pessoa = Pessoa::create($data['pessoa']);
-        if($pessoa){
-            $data['user']['id_pessoa']=$pessoa->id;
-            if(User::create($data['user'])){
+        if ($pessoa) {
+            $data['user']['id_pessoa'] = $pessoa->id;
+            if (User::create($data['user'])) {
                 return back()->with(['success' => "Feito com sucesso"]);
             }
         }
     }
 
-    public function profile(){
-        
+    public function profile()
+    {
+        $id_user = Auth::user()->id;
+
+        $user = User::find($id_user);
+        if (!$user) {
+            return back()->with(['error' => "Nao encontrou"]);
+        }
+
+        $data = [
+            'title' => "Usuários",
+            'menu' => "Usuários",
+            'submenu' => "Perfil",
+            'type' => "usuarios",
+            'config' => null,
+            'getUsuario'=>$user,
+        ];
+        return view('admin.user.perfil', $data);
     }
 }
