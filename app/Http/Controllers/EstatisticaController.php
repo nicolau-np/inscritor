@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 class EstatisticaController extends Controller
 {
     public function index(){
-        
+        $data = [
+            'title' => "Estatísticas",
+            'menu' => "Estatísticas",
+            'submenu' => "Listar",
+            'type' => "estatisticas",
+            'config' => null,
+        ];
+        return view('admin.estatisticas.list', $data);
     }
 }
