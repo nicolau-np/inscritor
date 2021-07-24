@@ -368,7 +368,7 @@
 							</a>
 							<div class="collapse @if($type=='estatisticas') show @endif" id="sidebarLayouts">
 								<ul class="nav nav-collapse">
-									<li class="@if($menu=='Listas') @endif">
+									<li class="@if($menu=='Listas') active @endif">
 										<a href="/admin/estatisticas/lista">
 											<span class="sub-item">Listas</span>
 										</a>
