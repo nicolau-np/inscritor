@@ -53,6 +53,10 @@ Route::group(['prefix'=>"admin", 'middleware'=>"auth"], function(){
         Route::post('/update', "UserController@update");
     });
 
+    Route::groupe(['prefix' =>"estatisticas", 'middleware'=>"admin"], function(){
+        Route::get('/lista', "UserController@lista")
+    });
+
 
     Route::get('/sobre', "HomeController@sobre");
 

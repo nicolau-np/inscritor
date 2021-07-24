@@ -369,7 +369,7 @@
 							<div class="collapse" id="sidebarLayouts">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="sidebar-style-1.html">
+										<a href="/admin/estatisticas/lista">
 											<span class="sub-item">Listas</span>
 										</a>
 									</li>
