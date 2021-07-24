@@ -41,5 +41,7 @@ class EstatisticaController extends Controller
         }elseif($request->estado=="Não Qualificados"){
             //nao qualificados
         }
+
+        return 
     }
 }
