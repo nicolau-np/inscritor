@@ -25,4 +25,21 @@ class EstatisticaController extends Controller
         ];
         return view('admin.estatisticas.list', $data);
     }
+
+    public function getList(Request $request){
+        $request->validate([
+            'curso' => ['required', 'integer', 'min:1'],
+            'turno' => ['required', 'integer', 'min:1'],
+            'ano_lectivo' => ['required', 'integer', 'min:1'],
+            'estado' => ['required', 'string', 'min:1', 'max:255'],
+        ]);
+
+        if($request->estado == "Todos"){
+            //todos
+        }elseif($request->estado=="Qualificados"){
+            //qualificados
+        }elseif($request->estado=="Não Qualificados"){
+            //nao qualificados
+        }
+    }
 }
