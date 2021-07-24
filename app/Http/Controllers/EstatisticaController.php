@@ -41,7 +41,13 @@ class EstatisticaController extends Controller
         }elseif($request->estado=="Não Qualificados"){
             //nao qualificados
         }
-
-        return 
+        $lista = [
+            [
+                'nome'=>"Libra"
+            ],[
+                'nome'=>"euro"
+            ],
+        ];
+        return back()->with(['getLista'=>$lista, 'success'=>"pesquisa Feita"]);
     }
 }

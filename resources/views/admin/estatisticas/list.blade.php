@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"post", 'url' =>"/admin/estatisticas/getList"])}}
+                {{Form::open(['method'=>"get", 'url' =>"/admin/estatisticas/list"])}}
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group form-group-default">
@@ -75,6 +75,12 @@
 
 
                 {{Form::close()}}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        hello
+                    </div>
+                </div>
             </div>
 
         </div>
