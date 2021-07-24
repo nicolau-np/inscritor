@@ -20,7 +20,7 @@
                     <div class="alert bg-success" role="alert"><em class="fa fa-lg fa-check">&nbsp;</em> {{session('success')}} <a href="#" class="pull-right"><em class="fa fa-lg fa-close"></em></a></div>
                 @endif
 
-                {{Form::open(['method'=>"post", 'url' =>"/admin/estatisticas/pegar_lista"])}}
+                {{Form::open(['method'=>"post", 'url' =>"/admin/estatisticas/getList"])}}
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group form-group-default">
@@ -65,13 +65,14 @@
                             @endif
                         </div>
                        </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        {{Form::submit('Salvar', ['class'=>"btn btn-primary"])}}
+                       <div class="col-md-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-search"> </i><br/>Pesquisar
+                        </button>
                     </div>
                 </div>
+
 
                 {{Form::close()}}
             </div>
