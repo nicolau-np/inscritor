@@ -84,6 +84,9 @@
                     <div class="col-md-12">
                         @if(session('getLista'))
                         <h1>Encontrou</h1>
+                        <ul>
+                       
+                        </ul>
                         @endif
                     </div>
                 </div>
